@@ -136,7 +136,6 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
-    <BundleResource Include="test.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
