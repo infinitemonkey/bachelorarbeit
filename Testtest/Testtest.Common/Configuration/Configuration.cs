@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
+using PCLStorage;
 
 namespace Testtest.Common
 {
@@ -12,9 +14,10 @@ namespace Testtest.Common
 
         public IEnumerable<Option> Options { get; set; }
 
-        public static Configuration Load()
+        public static async Task<Configuration> Load()
         {
-            return JsonConvert.DeserializeObject<Configuration>("");
+            IFile file = await FileSystem.Current.LocalStorage.GetFileAsync("test.json");
+            return JsonConvert.DeserializeObject<Configuration>(await file.ReadAllTextAsync());
         }
     }
 }
