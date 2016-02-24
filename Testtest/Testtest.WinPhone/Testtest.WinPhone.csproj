@@ -107,6 +107,56 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\MarkerFelt-22.xnb" />
+    <BundleResource Include="Content\Images\Hd\levels_1.png" />
+    <BundleResource Include="Content\Images\Hd\levels_2.png" />
+    <BundleResource Include="Content\Images\Hd\levels_3.png" />
+    <BundleResource Include="Content\Images\Hd\levels_4.png" />
+    <BundleResource Include="Content\Images\Hd\logo.png" />
+    <BundleResource Include="Content\Images\Hd\options_1.png" />
+    <BundleResource Include="Content\Images\Hd\options_2.png" />
+    <BundleResource Include="Content\Images\Hd\options_3.png" />
+    <BundleResource Include="Content\Images\Hd\options_4.png" />
+    <BundleResource Include="Content\Images\Hd\pause_1.png" />
+    <BundleResource Include="Content\Images\Hd\pause_2.png" />
+    <BundleResource Include="Content\Images\Hd\pause_3.png" />
+    <BundleResource Include="Content\Images\Hd\pause_4.png" />
+    <BundleResource Include="Content\Images\Hd\play_1.png" />
+    <BundleResource Include="Content\Images\Hd\play_2.png" />
+    <BundleResource Include="Content\Images\Hd\play_3.png" />
+    <BundleResource Include="Content\Images\Hd\play_4.png" />
+    <BundleResource Include="Content\Images\Hd\sound_1.png" />
+    <BundleResource Include="Content\Images\Hd\sound_2.png" />
+    <BundleResource Include="Content\Images\Hd\sound_3.png" />
+    <BundleResource Include="Content\Images\Hd\sound_4.png" />
+    <BundleResource Include="Content\Images\Hd\tutorial_1.png" />
+    <BundleResource Include="Content\Images\Hd\tutorial_2.png" />
+    <BundleResource Include="Content\Images\Hd\tutorial_3.png" />
+    <BundleResource Include="Content\Images\Hd\tutorial_4.png" />
+    <BundleResource Include="Content\Images\Ld\levels_1.png" />
+    <BundleResource Include="Content\Images\Ld\levels_2.png" />
+    <BundleResource Include="Content\Images\Ld\levels_3.png" />
+    <BundleResource Include="Content\Images\Ld\levels_4.png" />
+    <BundleResource Include="Content\Images\Ld\logo.png" />
+    <BundleResource Include="Content\Images\Ld\options_1.png" />
+    <BundleResource Include="Content\Images\Ld\options_2.png" />
+    <BundleResource Include="Content\Images\Ld\options_3.png" />
+    <BundleResource Include="Content\Images\Ld\options_4.png" />
+    <BundleResource Include="Content\Images\Ld\pause_1.png" />
+    <BundleResource Include="Content\Images\Ld\pause_2.png" />
+    <BundleResource Include="Content\Images\Ld\pause_3.png" />
+    <BundleResource Include="Content\Images\Ld\pause_4.png" />
+    <BundleResource Include="Content\Images\Ld\play_1.png" />
+    <BundleResource Include="Content\Images\Ld\play_2.png" />
+    <BundleResource Include="Content\Images\Ld\play_3.png" />
+    <BundleResource Include="Content\Images\Ld\play_4.png" />
+    <BundleResource Include="Content\Images\Ld\sound_1.png" />
+    <BundleResource Include="Content\Images\Ld\sound_2.png" />
+    <BundleResource Include="Content\Images\Ld\sound_3.png" />
+    <BundleResource Include="Content\Images\Ld\sound_4.png" />
+    <BundleResource Include="Content\Images\Ld\tutorial_1.png" />
+    <BundleResource Include="Content\Images\Ld\tutorial_2.png" />
+    <BundleResource Include="Content\Images\Ld\tutorial_3.png" />
+    <BundleResource Include="Content\Images\Ld\tutorial_4.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-240.png" />
@@ -117,8 +167,6 @@
     <Content Include="Assets\WideLogo.scale-240.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\Images\Hd\" />
-    <Folder Include="Content\Images\Ld\" />
     <Folder Include="Content\Sounds\" />
   </ItemGroup>
   <ItemGroup>

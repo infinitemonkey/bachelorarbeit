@@ -26,6 +26,10 @@ namespace Testtest.Common.Layers
             touchListener.OnTouchesEnded = OnTouchesEnded;
             AddEventListener(touchListener, this);
 
+            var label = new CCLabel("Test", "Arial", 48);
+            label.Position = bounds.Center;
+            AddChild(label);
+
             CreateMenu(bounds);
 
             CreateLogo(bounds);
