@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testtest.iOS", "Testtest\Testtest.iOS\Testtest.iOS.csproj", "{B2E06D45-EC7F-4856-BA95-77EF620E382C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testtest.iOS", "Testtest.iOS\Testtest.iOS.csproj", "{B2E06D45-EC7F-4856-BA95-77EF620E382C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testtest.Android", "Testtest\Testtest.Android\Testtest.Android.csproj", "{C19E6C39-628E-4B16-8674-D94A6E08CDBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testtest.Android", "Testtest.Android\Testtest.Android.csproj", "{C19E6C39-628E-4B16-8674-D94A6E08CDBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testtest.Common", "Testtest\Testtest.Common\Testtest.Common.csproj", "{950912B5-ACE9-4022-9E4F-1D4AA2D73710}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testtest.Common", "Testtest.Common\Testtest.Common.csproj", "{950912B5-ACE9-4022-9E4F-1D4AA2D73710}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testtest.WinPhone", "Testtest.WinPhone\Testtest.WinPhone.csproj", "{B01FDC1A-8B60-4ED5-9A0E-99DE257E498D}"
 EndProject
