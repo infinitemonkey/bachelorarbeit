@@ -36,6 +36,12 @@
     <Compile Include="Layers\OptionsLayer.cs" />
     <Compile Include="Layers\TutorialLayer.cs" />
     <Compile Include="Layers\LevelsLayer.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\Menu.cs" />
+    <Compile Include="Configuration\DefaultButton.cs" />
+    <Compile Include="Configuration\Position.cs" />
+    <Compile Include="Configuration\Level.cs" />
+    <Compile Include="Configuration\Option.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -48,9 +54,15 @@
     <Reference Include="MonoGame.Framework">
       <HintPath>..\..\packages\CocosSharp.1.7.1.0\lib\portable-net45+win+wpa81+wp81\MonoGame.Framework.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
 </Project>
