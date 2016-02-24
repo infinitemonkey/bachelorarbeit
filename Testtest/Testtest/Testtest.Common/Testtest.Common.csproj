@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,6 +30,7 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameInitialization.cs" />
     <Compile Include="Layers\GameLayer.cs" />
     <Compile Include="Layers\MenuLayer.cs" />
     <Compile Include="Layers\OptionsLayer.cs" />
@@ -51,7 +52,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Layers\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
