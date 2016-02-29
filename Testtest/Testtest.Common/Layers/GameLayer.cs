@@ -6,15 +6,15 @@ namespace Testtest.Common.Layers
 {
     public class GameLayer : CCLayerGradient
     {
-        CCParticleRain _rain;
-        CCLabel _scoreLabel;
+        private readonly string _levelKey;
 
-        public GameLayer()
+        private CCParticleRain _rain;
+        private CCLabel _scoreLabel;
+
+        public GameLayer(string levelKey)
             : base(CCColor4B.Blue, new CCColor4B(127, 200, 205))
         {
-            // Load and instantate your assets here
-
-            // Make any renderable node objects (e.g. sprites) children of this layer
+            _levelKey = levelKey;
         }
 
         protected override void AddedToScene()
@@ -47,6 +47,14 @@ namespace Testtest.Common.Layers
             var pauseMenu = new CCMenu(pauseButton);
             pauseMenu.Position = new CCPoint(bounds.MaxX - 50, bounds.MaxY - 50);
             AddChild(pauseMenu);
+
+            var levelKeyLabel = new CCLabel(_levelKey, "Bradley Hand", 36f)
+            { 
+                Color = CCColor3B.White,
+                Position = new CCPoint(bounds.MaxX / 2, bounds.MaxY / 2),
+                HorizontalAlignment = CCTextAlignment.Center,
+            };
+            this.AddChild(levelKeyLabel);
         }
 
         void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
@@ -77,10 +85,10 @@ namespace Testtest.Common.Layers
             Director.ReplaceScene(transitionToGameOver);
         }
 
-        public static CCScene CreateScene(CCGameView gameView)
+        public static CCScene CreateScene(CCGameView gameView, string levelKey)
         {
             var scene = new CCScene(gameView);
-            var layer = new GameLayer();
+            var layer = new GameLayer(levelKey);
 
             scene.AddChild(layer);
 

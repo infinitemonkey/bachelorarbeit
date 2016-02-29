@@ -9,6 +9,5 @@ namespace Testtest.Common
 
         public int Y { get; set; }
 	}
-
 }
 

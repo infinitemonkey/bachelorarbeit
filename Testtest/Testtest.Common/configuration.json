@@ -1,0 +1,224 @@
+﻿{
+	"Menu": {
+		"BackgroundImage": "",
+		"BackgroundSound": "",
+		"PlayButton": {
+			"Text": {
+				"de": "Spielen",
+				"en": "Play"
+			},
+			"DefaultImage": "",
+			"ClickImage": "",
+			"ClickSound": "",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"LevelsButton": {
+			"Text": {
+				"de": "Levels",
+				"en": "Levels"
+			},
+			"DefaultImage": "",
+			"ClickImage": "",
+			"ClickSound": "",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"OptionsButton": {
+			"Text": {
+				"de": "Optionen",
+				"en": "Options"
+			},
+			"DefaultImage": "",
+			"ClickImage": "",
+			"ClickSound": "",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"HelpButton": {
+			"Text": {
+				"de": "Hilfe",
+				"en": "Help"
+			},
+			"DefaultImage": "",
+			"ClickImage": "",
+			"ClickSound": "",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		}
+	},
+	"LevelLayer": {
+		"BackgroundImage": "",
+		"BackButton": {
+			"Text": {
+				"de": "Zurück",
+				"en": "Back"
+			},
+			"DefaultImage": "",
+			"ClickImage": "",
+			"ClickSound": "",
+			"Position": {
+				"X": 200,
+				"Y": 50
+			}
+		},
+		"Layout": {
+			"Cols": 2,
+			"Rows": 5
+		},
+		"Levels": [
+			{
+				"Key": "LevelOne",
+				"Text": {
+					"de": "Level 1",
+					"en": "Level 1"
+				},
+				"DefaultImage": "",
+				"ClickImage": "",
+				"SuccessImage": "",
+				"ClickSound": "",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{}"
+			},
+			{
+				"Key": "LevelTwo",
+				"Text": {
+					"de": "Level 2",
+					"en": "Level 2"
+				},
+				"DefaultImage": "",
+				"ClickImage": "",
+				"SuccessImage": "",
+				"ClickSound": "",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{}"
+			},
+			{
+				"Key": "LevelTwo",
+				"Text": {
+					"de": "Level 3",
+					"en": "Level 3"
+				},
+				"DefaultImage": "",
+				"ClickImage": "",
+				"SuccessImage": "",
+				"ClickSound": "",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{}"
+			},
+			{
+				"Key": "LevelTwo",
+				"Text": {
+					"de": "Level 4",
+					"en": "Level 4"
+				},
+				"DefaultImage": "",
+				"ClickImage": "",
+				"SuccessImage": "",
+				"ClickSound": "",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{}"
+			},
+			{
+				"Key": "LevelFive",
+				"Text": {
+					"de": "Level 5",
+					"en": "Level 5"
+				},
+				"DefaultImage": "",
+				"ClickImage": "",
+				"SuccessImage": "",
+				"ClickSound": "",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{}"
+			}
+		]
+	},
+	"OptionLayer": {
+		"BackgroundImage": "",
+		"BackButton": {
+			"Text": {
+				"de": "Zurück",
+				"en": "Back"
+			},
+			"DefaultImage": "",
+			"ClickImage": "",
+			"ClickSound": "",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"Layout": {
+			"Cols": 2,
+			"Rows": 5
+		},
+		"SoundOption": {
+			"Key": "SoundOption",
+			"Text": {
+				"de": "Musik",
+				"en": "Sound"
+			},
+			"OnImage": "",
+			"OffImage": "",
+			"ClickSound": "",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"Options": [
+			{
+				"Key": "OptionOne",
+				"Text": {
+					"de": "Option 1",
+					"en": "Option 1"
+				},
+				"OnImage": "",
+				"OffImage": "",
+				"ClickSound": "",
+				"Position": {
+					"X": 1,
+					"Y": 1
+				}
+			},
+			{
+				"Key": "OptionTwo",
+				"Text": {
+					"de": "Option 2",
+					"en": "Option 2"
+				},
+				"OnImage": "",
+				"OffImage": "",
+				"ClickSound": "",
+				"Position": {
+					"X": 1,
+					"Y": 1
+				}
+			}
+		]
+	}
+}

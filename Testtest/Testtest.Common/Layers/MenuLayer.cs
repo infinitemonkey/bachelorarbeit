@@ -88,7 +88,7 @@ namespace Testtest.Common.Layers
 
         void StartGame(object stuff = null)
         {
-            var gameView = GameLayer.CreateScene(GameView);
+            var gameView = GameLayer.CreateScene(GameView, "none");
             var transition = new CCTransitionProgressInOut(0.2f, gameView);
             Director.ReplaceScene(transition);
         }

@@ -12,21 +12,19 @@ namespace Testtest.Common
     {
         public Menu Menu { get; set; }
 
-        public IEnumerable<Level> Levels { get; set; }
+        public LevelLayer LevelLayer { get; set; }
 
-        public IEnumerable<Option> Options { get; set; }
+        public OptionLayer OptionLayer { get; set; }
 
-        public static async Task<Configuration> Load()
+        public static Configuration Load()
         {
             var assembly = typeof(Configuration).GetTypeInfo().Assembly;
-            Stream stream = assembly.GetManifestResourceStream("Testtest.Common.test.json");
+            Stream stream = assembly.GetManifestResourceStream("Testtest.Common.configuration.json");
             string text = "";
             using (var reader = new System.IO.StreamReader(stream))
             {
                 text = reader.ReadToEnd();
             }
-            //IFile file = await FileSystem.Current.LocalStorage.GetFileAsync("test.json");
-            //return JsonConvert.DeserializeObject<Configuration>(await file.ReadAllTextAsync());
             return JsonConvert.DeserializeObject<Configuration>(text);
         }
     }

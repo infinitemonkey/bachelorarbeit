@@ -27,7 +27,7 @@ namespace Testtest.Common.Layers
                 {
                     if(startGameAfter)
                     {
-                        var mainGame = GameLayer.CreateScene(GameView);
+                        var mainGame = GameLayer.CreateScene(GameView, "none");
                         var transition = new CCTransitionProgressInOut(0.2f, mainGame);
                         Director.ReplaceScene(transition);
                         RemoveAllChildren(true);

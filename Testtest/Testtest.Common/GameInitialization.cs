@@ -7,7 +7,7 @@ namespace Testtest.Common
 {
     public static class GameInitialization
     {
-        public static void LoadGame(object sender, EventArgs e)
+        public static async void LoadGame(object sender, EventArgs e)
         {
             CCGameView gameView = sender as CCGameView;
 
@@ -33,7 +33,7 @@ namespace Testtest.Common
                 //else
                 //{
                     contentSearchPaths.Add("Images/Ld");
-                    CCSprite.DefaultTexelToContentSizeRatio = 2.0f;
+                    CCSprite.DefaultTexelToContentSizeRatio = 1.0f;
                 //}
 
                 gameView.ContentManager.SearchPaths = contentSearchPaths;
