@@ -1,12 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using PCLStorage;
 
-namespace Testtest.Common
+namespace Testtest.Common.Configuration
 {
 	public class LevelLayer
 	{

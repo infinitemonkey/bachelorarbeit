@@ -6,6 +6,7 @@ namespace Testtest.Common.Layers
 {
     public class GameLayer : CCLayerGradient
     {
+        private readonly Configuration.Configuration _configuration;
         private readonly string _levelKey;
 
         private CCParticleRain _rain;
@@ -15,46 +16,41 @@ namespace Testtest.Common.Layers
             : base(CCColor4B.Blue, new CCColor4B(127, 200, 205))
         {
             _levelKey = levelKey;
+            _configuration = Configuration.Configuration.Load();
         }
 
         protected override void AddedToScene()
         {
             base.AddedToScene();
 
-            // Use the bounds to layout the positioning of our drawable assets
             CCRect bounds = VisibleBoundsWorldspace;
 
-            // Register for touch events
-            var touchListener = new CCEventListenerTouchAllAtOnce();
-            touchListener.OnTouchesEnded = OnTouchesEnded;
-            AddEventListener(touchListener, this);
-
             var topOfscreen = bounds.Center.Offset(0f, bounds.MaxY/2f);
-            _rain = new CCParticleRain(topOfscreen);
-            _rain.Scale = 1.5f;
-            this.AddChild(_rain);
+            _rain = new CCParticleRain(topOfscreen) {Scale = 1.5f};
+            AddChild(_rain);
 
             _scoreLabel = new CCLabel(String.Format("Score: {0}", 0), "Bradley Hand", 36f)
             { 
                 Color = CCColor3B.White,
                 Position = new CCPoint(55, bounds.MaxY - 20),
-                HorizontalAlignment = CCTextAlignment.Center,
+                HorizontalAlignment = CCTextAlignment.Center
             };
-            this.AddChild(_scoreLabel);
+            AddChild(_scoreLabel);
 
-            var pauseButton = new CCMenuItemImage("pause_1", "pause_3", PauseGame);
-            pauseButton.Scale = 0.5f;
-            var pauseMenu = new CCMenu(pauseButton);
-            pauseMenu.Position = new CCPoint(bounds.MaxX - 50, bounds.MaxY - 50);
+            var pauseButton = new CCMenuItemImage("pause_1", "pause_3", PauseGame) {Scale = 0.5f};
+            var pauseMenu = new CCMenu(pauseButton) {Position = new CCPoint(bounds.MaxX - 50, bounds.MaxY - 50)};
             AddChild(pauseMenu);
 
             var levelKeyLabel = new CCLabel(_levelKey, "Bradley Hand", 36f)
             { 
                 Color = CCColor3B.White,
                 Position = new CCPoint(bounds.MaxX / 2, bounds.MaxY / 2),
-                HorizontalAlignment = CCTextAlignment.Center,
+                HorizontalAlignment = CCTextAlignment.Center
             };
-            this.AddChild(levelKeyLabel);
+            AddChild(levelKeyLabel);
+
+            var touchListener = new CCEventListenerTouchAllAtOnce { OnTouchesEnded = OnTouchesEnded };
+            AddEventListener(touchListener, this);
         }
 
         void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
@@ -65,9 +61,11 @@ namespace Testtest.Common.Layers
             }
         }
 
-        void PauseGame(object stuff = null)
+        void PauseGame(object sender)
         {
-            EndGame();
+            var pauseLayer = new PauseLayer();
+            AddChild(pauseLayer);
+            //EndGame();
             //GameView.Paused = !GameView.Paused;
         }
 

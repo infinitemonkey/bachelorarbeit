@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
-using PCLStorage;
 
-namespace Testtest.Common
+namespace Testtest.Common.Configuration
 {
     public class Configuration
     {
@@ -18,14 +14,14 @@ namespace Testtest.Common
 
         public static Configuration Load()
         {
-            var assembly = typeof(Configuration).GetTypeInfo().Assembly;
+            Assembly assembly = typeof(Configuration).GetTypeInfo().Assembly;
             Stream stream = assembly.GetManifestResourceStream("Testtest.Common.configuration.json");
-            string text = "";
-            using (var reader = new System.IO.StreamReader(stream))
+            string content;
+            using (var reader = new StreamReader(stream))
             {
-                text = reader.ReadToEnd();
+                content = reader.ReadToEnd();
             }
-            return JsonConvert.DeserializeObject<Configuration>(text);
+            return JsonConvert.DeserializeObject<Configuration>(content);
         }
     }
 }

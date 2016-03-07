@@ -7,7 +7,7 @@ namespace Testtest.Common
 {
     public static class GameInitialization
     {
-        public static async void LoadGame(object sender, EventArgs e)
+        public static void LoadGame(object sender, EventArgs e)
         {
             CCGameView gameView = sender as CCGameView;
 

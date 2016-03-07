@@ -34,6 +34,7 @@
     <Compile Include="Layers\GameLayer.cs" />
     <Compile Include="Layers\MenuLayer.cs" />
     <Compile Include="Layers\OptionsLayer.cs" />
+    <Compile Include="Layers\PauseLayer.cs" />
     <Compile Include="Layers\TutorialLayer.cs" />
     <Compile Include="Layers\LevelsLayer.cs" />
     <Compile Include="Configuration\Configuration.cs" />

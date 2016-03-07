@@ -1,7 +1,6 @@
-using System;
 using System.Collections.Generic;
 
-namespace Testtest.Common
+namespace Testtest.Common.Configuration
 {
 	public class LevelDefinition
 	{

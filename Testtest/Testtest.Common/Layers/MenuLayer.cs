@@ -1,33 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CocosSharp;
 
 namespace Testtest.Common.Layers
 {
     public class MenuLayer : CCLayerColor
     {
-        public MenuLayer()
-            : base(CCColor4B.AliceBlue)
+        public MenuLayer() : base(CCColor4B.AliceBlue)
         {
-            // Load and instantate your assets here
-
-            // Make any renderable node objects (e.g. sprites) children of this layer
         }
 
         protected override void AddedToScene()
         {
             base.AddedToScene();
 
-            // Use the bounds to layout the positioning of our drawable assets
             CCRect bounds = VisibleBoundsWorldspace;
 
-            // Register for touch events
-            var touchListener = new CCEventListenerTouchAllAtOnce();
-            touchListener.OnTouchesEnded = OnTouchesEnded;
+            var touchListener = new CCEventListenerTouchAllAtOnce {OnTouchesEnded = OnTouchesEnded};
             AddEventListener(touchListener, this);
 
             CreateMenu(bounds);
-
             CreateLogo(bounds);
         }
 
@@ -62,59 +53,47 @@ namespace Testtest.Common.Layers
         {
             CCSprite logo = new CCSprite("logo");
 
-            // Define actions
             var moveUp = new CCMoveBy (1.0f, new CCPoint (0.0f, 50.0f));
-            var moveDown = moveUp.Reverse ();
-
-            // A CCSequence action runs the list of actions in ... sequence!
-            var moveSeq = new CCSequence (new CCEaseBackInOut (moveUp), 
-                new CCEaseBackInOut (moveDown));
-
-            CCRepeatForever repeatedAction = new CCRepeatForever (moveSeq);
-
-            // Layout the positioning of sprites based on visibleBounds
+            var moveDown = moveUp.Reverse();
+            var moveSeq = new CCSequence (new CCEaseBackInOut (moveUp), new CCEaseBackInOut (moveDown));
+            CCRepeatForever repeatedAction = new CCRepeatForever(moveSeq);
             logo.AnchorPoint = CCPoint.AnchorMiddle;
             logo.Position = new CCPoint(bounds.Size.Width / 2, bounds.Size.Height * 0.75f);
-            // Run actions on sprite
-            // Note: we can reuse the same action definition on multiple sprites!
             logo.RunAction(repeatedAction);
             AddChild(logo);
         }
 
-        void ToggleSound(object stuff = null)
+        void ToggleSound(object sender)
         {
             // toggle sound
         }
 
-        void StartGame(object stuff = null)
+        void StartGame(object sender)
         {
-            var gameView = GameLayer.CreateScene(GameView, "none");
+            var gameView = GameLayer.CreateScene(GameView, "none"); // TODO: get last played level
             var transition = new CCTransitionProgressInOut(0.2f, gameView);
             Director.ReplaceScene(transition);
         }
 
-        void StartLevels(object stuff = null)
+        void StartLevels(object sender)
         {
             var levelsView = LevelsLayer.CreateScene(GameView);
             var transition = new CCTransitionProgressInOut(0.2f, levelsView);
             Director.ReplaceScene(transition);
-            RemoveAllChildren(true);
         }
 
-        void StartOptions(object stuff = null)
+        void StartOptions(object sender)
         {
             var optionsView = OptionsLayer.CreateScene(GameView);
             var transition = new CCTransitionProgressInOut(0.2f, optionsView);
             Director.ReplaceScene(transition);
-            RemoveAllChildren(true);
         }
 
-        void StartTutorial(object stuff = null)
+        void StartTutorial(object sender)
         {
             var tutorialView = TutorialLayer.CreateScene(GameView);
             var transition = new CCTransitionProgressInOut(0.2f, tutorialView);
             Director.ReplaceScene(transition);
-            RemoveAllChildren(true);
         }
 
         void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
@@ -125,7 +104,7 @@ namespace Testtest.Common.Layers
             }
         }
 
-        public static CCScene CreateScene (CCGameView gameView)
+        public static CCScene CreateScene(CCGameView gameView)
         {
             var scene = new CCScene(gameView);
             var layer = new MenuLayer();
