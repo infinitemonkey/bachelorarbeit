@@ -66,7 +66,7 @@ namespace Sidste.CrossFramework.Common.Layers
 
         private void StartGame(object sender)
         {
-            var gameView = GameLayer.CreateScene(GameView, "none"); // TODO: get last played level
+            var gameView = GameLayer.CreateScene(GameView, null); // TODO: get last played level
             var transition = new CCTransitionProgressInOut(0.2f, gameView);
             Director.ReplaceScene(transition);
         }

@@ -47,6 +47,7 @@
     <Compile Include="Configuration\Layout.cs" />
     <Compile Include="Configuration\OptionLayer.cs" />
     <Compile Include="Layers\GameLogicLayer.cs" />
+    <Compile Include="Helper\MenuHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -77,4 +78,7 @@
     <EmbeddedResource Include="configuration.json" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Helper\" />
+  </ItemGroup>
 </Project>

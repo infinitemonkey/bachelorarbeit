@@ -20,20 +20,10 @@ namespace Sidste.CrossFramework.Common.Layers
             title.RunAction(new CCRepeatForever(new CCRotateBy(1f, 360f)));
             AddChild(title);
 
-            var touchListener = new CCEventListenerTouchAllAtOnce();
-            touchListener.OnTouchesEnded = OnTouchesEnded;
-            AddEventListener(touchListener, this);
+            AddChild(MenuHelper.CreateHomeButton(bounds, BackToMenu));
         }
 
-        private void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
-        {
-            if (touches.Count > 0)
-            {
-                BackToMenu();
-            }
-        }
-
-        private void BackToMenu()
+        private void BackToMenu(object sender)
         {
             var menuLayer = MenuLayer.CreateScene(GameView);
             var transitionToGameOver = new CCTransitionProgressInOut(0.2f, menuLayer);

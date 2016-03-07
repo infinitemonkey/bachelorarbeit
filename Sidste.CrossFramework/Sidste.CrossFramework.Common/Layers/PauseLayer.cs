@@ -25,12 +25,7 @@ namespace Sidste.CrossFramework.Common.Layers
             resumeLabel.PositionY = bounds.Center.Y - 50;
             AddChild(resumeLabel);
 
-            var menuItemStart = new CCMenuItemImage("home_1", "home_3", "home_4", BackToMenu) { Scale = 0.8f };
-            var menuBottom = new CCMenu(menuItemStart)
-            {
-                Position = new CCPoint(bounds.Size.Width / 2, bounds.MinY + 100)
-            };
-            AddChild(menuBottom);
+            AddChild(MenuHelper.CreateHomeButton(bounds, BackToMenu));
 
             Opacity = 150;
 

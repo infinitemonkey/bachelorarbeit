@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using CocosSharp;
+using Sidste.CrossFramework.Common.Configuration;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
@@ -27,7 +28,10 @@ namespace Sidste.CrossFramework.Common.Layers
 
             InitializeGameLayer(bounds);
 
-            AddChild(new GameLogicLayer(_configuration.LevelLayer.Levels.FirstOrDefault(x => x.Key == _levelKey)), 500);
+            LevelDefinition levelDefinition = string.IsNullOrWhiteSpace(_levelKey) 
+                ? _configuration.LevelLayer.Levels.First() 
+                : _configuration.LevelLayer.Levels.FirstOrDefault(x => x.Key == _levelKey);
+            AddChild(new GameLogicLayer(levelDefinition), 500);
 
             //test
             Schedule(t =>
