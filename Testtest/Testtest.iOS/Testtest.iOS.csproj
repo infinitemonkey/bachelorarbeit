@@ -75,10 +75,6 @@
     <MtouchProfiling>true</MtouchProfiling>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Portable.Ninject.3.3.1\lib\Xamarin.iOS\Ninject.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -104,6 +100,9 @@
     </Reference>
     <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64">
       <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Portable.Ninject.3.3.1\lib\Xamarin.iOS\Ninject.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -190,5 +189,13 @@
     <BundleResource Include="Content\Images\Ld\pause_2.png" />
     <BundleResource Include="Content\Images\Ld\pause_3.png" />
     <BundleResource Include="Content\Images\Ld\pause_4.png" />
+    <BundleResource Include="Content\Images\Ld\home_1.png" />
+    <BundleResource Include="Content\Images\Ld\home_2.png" />
+    <BundleResource Include="Content\Images\Ld\home_3.png" />
+    <BundleResource Include="Content\Images\Ld\home_4.png" />
+    <BundleResource Include="Content\Images\Hd\home_1.png" />
+    <BundleResource Include="Content\Images\Hd\home_2.png" />
+    <BundleResource Include="Content\Images\Hd\home_3.png" />
+    <BundleResource Include="Content\Images\Hd\home_4.png" />
   </ItemGroup>
 </Project>

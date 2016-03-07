@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CocosSharp;
+using System.Linq;
 
 namespace Testtest.Common.Layers
 {
@@ -9,11 +10,11 @@ namespace Testtest.Common.Layers
         private readonly Configuration.Configuration _configuration;
         private readonly string _levelKey;
 
-        private CCParticleRain _rain;
         private CCLabel _scoreLabel;
 
-        public GameLayer(string levelKey)
-            : base(CCColor4B.Blue, new CCColor4B(127, 200, 205))
+        private int _elapsedTime = 0;
+
+        public GameLayer(string levelKey) : base(CCColor4B.Blue, new CCColor4B(127, 200, 205))
         {
             _levelKey = levelKey;
             _configuration = Configuration.Configuration.Load();
@@ -25,10 +26,20 @@ namespace Testtest.Common.Layers
 
             CCRect bounds = VisibleBoundsWorldspace;
 
-            var topOfscreen = bounds.Center.Offset(0f, bounds.MaxY/2f);
-            _rain = new CCParticleRain(topOfscreen) {Scale = 1.5f};
-            AddChild(_rain);
+            InitializeGameLayer(bounds);
 
+            AddChild(new GameLogicLayer(_configuration.LevelLayer.Levels.FirstOrDefault(x => x.Key == _levelKey)), 500);
+
+            //test
+            Schedule(t =>
+                {
+                    _elapsedTime = _elapsedTime + (int)t;
+                    _scoreLabel.Text = "Score: " + _elapsedTime.ToString();
+                }, 1.0f);
+        }
+
+        private void InitializeGameLayer(CCRect bounds)
+        {
             _scoreLabel = new CCLabel(String.Format("Score: {0}", 0), "Bradley Hand", 36f)
             { 
                 Color = CCColor3B.White,
@@ -40,36 +51,20 @@ namespace Testtest.Common.Layers
             var pauseButton = new CCMenuItemImage("pause_1", "pause_3", PauseGame) {Scale = 0.5f};
             var pauseMenu = new CCMenu(pauseButton) {Position = new CCPoint(bounds.MaxX - 50, bounds.MaxY - 50)};
             AddChild(pauseMenu);
-
-            var levelKeyLabel = new CCLabel(_levelKey, "Bradley Hand", 36f)
-            { 
-                Color = CCColor3B.White,
-                Position = new CCPoint(bounds.MaxX / 2, bounds.MaxY / 2),
-                HorizontalAlignment = CCTextAlignment.Center
-            };
-            AddChild(levelKeyLabel);
-
-            var touchListener = new CCEventListenerTouchAllAtOnce { OnTouchesEnded = OnTouchesEnded };
-            AddEventListener(touchListener, this);
         }
 
-        void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
+        private void PauseGame(object sender)
         {
-            if (touches.Count > 0)
-            {
-                // Perform touch handling here
-            }
+            PauseGame();
         }
 
-        void PauseGame(object sender)
+        public void PauseGame()
         {
-            var pauseLayer = new PauseLayer();
-            AddChild(pauseLayer);
-            //EndGame();
-            //GameView.Paused = !GameView.Paused;
+            Pause();
+            AddChild(new PauseLayer(), 1000);
         }
 
-        void EndGame()
+        public void EndGame()
         {
             // Stop scheduled events as we transition to game over scene
             UnscheduleAll();
@@ -79,8 +74,8 @@ namespace Testtest.Common.Layers
         private void BackToMenu()
         {
             var menuLayer = MenuLayer.CreateScene(GameView);
-            var transitionToGameOver = new CCTransitionProgressInOut(0.2f, menuLayer);
-            Director.ReplaceScene(transitionToGameOver);
+            var transitionToMenu = new CCTransitionProgressInOut(0.2f, menuLayer);
+            Director.ReplaceScene(transitionToMenu);
         }
 
         public static CCScene CreateScene(CCGameView gameView, string levelKey)

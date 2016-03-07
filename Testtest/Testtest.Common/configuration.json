@@ -89,7 +89,7 @@
 					"X": 1,
 					"Y": 1
 				},
-				"Content": "{}"
+				"Content": "{ \"test\": 1 }"
 			},
 			{
 				"Key": "LevelTwo",
@@ -105,10 +105,10 @@
 					"X": 1,
 					"Y": 1
 				},
-				"Content": "{}"
+				"Content": "{ \"abc\": [\"a\", \"b\", \"c\"]}"
 			},
 			{
-				"Key": "LevelTwo",
+				"Key": "LevelThree",
 				"Text": {
 					"de": "Level 3",
 					"en": "Level 3"
@@ -124,7 +124,7 @@
 				"Content": "{}"
 			},
 			{
-				"Key": "LevelTwo",
+				"Key": "LevelFour",
 				"Text": {
 					"de": "Level 4",
 					"en": "Level 4"
@@ -144,6 +144,54 @@
 				"Text": {
 					"de": "Level 5",
 					"en": "Level 5"
+				},
+				"DefaultImage": "",
+				"ClickImage": "",
+				"SuccessImage": "",
+				"ClickSound": "",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{}"
+			},
+			{
+				"Key": "LevelSix",
+				"Text": {
+					"de": "Level 6",
+					"en": "Level 6"
+				},
+				"DefaultImage": "",
+				"ClickImage": "",
+				"SuccessImage": "",
+				"ClickSound": "",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{}"
+			},
+			{
+				"Key": "LevelSeven",
+				"Text": {
+					"de": "Level 7",
+					"en": "Level 7"
+				},
+				"DefaultImage": "",
+				"ClickImage": "",
+				"SuccessImage": "",
+				"ClickSound": "",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{}"
+			},
+			{
+				"Key": "LevelEight",
+				"Text": {
+					"de": "Level 8",
+					"en": "Level 8"
 				},
 				"DefaultImage": "",
 				"ClickImage": "",
