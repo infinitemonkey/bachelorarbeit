@@ -34,7 +34,7 @@ namespace Sidste.CrossFramework.Common.Layers
             AddChild(bg);
 
             var topOfscreen = bounds.Center.Offset(0f, bounds.MaxY/2f);
-            var meteor = new CCParticleMeteor(topOfscreen.Offset(-200.0f, -200.0f));
+            var meteor = new CCParticleMeteor(topOfscreen.Offset(-200.0f, -250.0f));
             AddChild(meteor);
 
             var galaxy = new CCParticleGalaxy(topOfscreen.Offset(200.0f, -100.0f));
