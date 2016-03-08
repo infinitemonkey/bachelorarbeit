@@ -10,6 +10,7 @@ namespace Sidste.CrossFramework.Common.Configuration
         public string ClickImage { get; set; }
         public string SuccessImage { get; set; }
         public string ClickSound { get; set; }
+        public string BackgroundImage { get; set; }
         public Position ScorePosition { get; set; }
         public string Content { get; set; }
 	}

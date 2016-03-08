@@ -8,6 +8,7 @@ namespace Sidste.CrossFramework.Common.Configuration
         public DefaultButton LevelsButton { get; set; }
         public DefaultButton OptionsButton { get; set; }
         public DefaultButton HelpButton { get; set; }
+        public DefaultButton SoundButton { get; set; }
 	}
 }
 

@@ -5,7 +5,7 @@ namespace Sidste.CrossFramework.Common.Layers
 {
     public class OptionsLayer : CCLayerColor
     {
-        public OptionsLayer() : base(CCColor4B.Magenta)
+        public OptionsLayer() : base(new CCColor4B(150, 10, 20))
         {
         }
 

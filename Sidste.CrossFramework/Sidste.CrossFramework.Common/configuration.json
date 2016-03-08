@@ -1,15 +1,15 @@
 ﻿{
 	"Menu": {
-		"BackgroundImage": "",
-		"BackgroundSound": "",
+		"BackgroundImage": "menuBackground",
+		"BackgroundSound": "backgroundMusic",
 		"PlayButton": {
 			"Text": {
 				"de": "Spielen",
 				"en": "Play"
 			},
-			"DefaultImage": "",
-			"ClickImage": "",
-			"ClickSound": "",
+			"DefaultImage": "play_1",
+			"ClickImage": "play_3",
+			"ClickSound": "pop",
 			"Position": {
 				"X": 1,
 				"Y": 1
@@ -20,9 +20,9 @@
 				"de": "Levels",
 				"en": "Levels"
 			},
-			"DefaultImage": "",
-			"ClickImage": "",
-			"ClickSound": "",
+			"DefaultImage": "levels_1",
+			"ClickImage": "levels_3",
+			"ClickSound": "pop",
 			"Position": {
 				"X": 1,
 				"Y": 1
@@ -33,9 +33,9 @@
 				"de": "Optionen",
 				"en": "Options"
 			},
-			"DefaultImage": "",
-			"ClickImage": "",
-			"ClickSound": "",
+			"DefaultImage": "options_1",
+			"ClickImage": "options_3",
+			"ClickSound": "pop",
 			"Position": {
 				"X": 1,
 				"Y": 1
@@ -46,9 +46,19 @@
 				"de": "Hilfe",
 				"en": "Help"
 			},
-			"DefaultImage": "",
-			"ClickImage": "",
-			"ClickSound": "",
+			"DefaultImage": "tutorial_1",
+			"ClickImage": "tutorial_3",
+			"ClickSound": "pop",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"SoundButton": {
+			"Text": null,
+			"DefaultImage": "sound_2",
+			"ClickImage": "sound_4",
+			"ClickSound": "pop",
 			"Position": {
 				"X": 1,
 				"Y": 1
@@ -62,12 +72,12 @@
 				"de": "Zurück",
 				"en": "Back"
 			},
-			"DefaultImage": "",
-			"ClickImage": "",
-			"ClickSound": "",
+			"DefaultImage": "level_1",
+			"ClickImage": "level_3",
+			"ClickSound": "pop",
 			"Position": {
-				"X": 200,
-				"Y": 50
+				"X": 370,
+				"Y": 100
 			}
 		},
 		"Layout": {
@@ -81,10 +91,11 @@
 					"de": "Level 1",
 					"en": "Level 1"
 				},
-				"DefaultImage": "",
-				"ClickImage": "",
-				"SuccessImage": "",
+				"DefaultImage": "level_2",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
 				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
 				"ScorePosition": {
 					"X": 1,
 					"Y": 1
@@ -97,10 +108,11 @@
 					"de": "Level 2",
 					"en": "Level 2"
 				},
-				"DefaultImage": "",
-				"ClickImage": "",
-				"SuccessImage": "",
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
 				"ClickSound": "",
+				"BackgroundImage": "gameBackground2",
 				"ScorePosition": {
 					"X": 1,
 					"Y": 1
@@ -113,10 +125,11 @@
 					"de": "Level 3",
 					"en": "Level 3"
 				},
-				"DefaultImage": "",
-				"ClickImage": "",
-				"SuccessImage": "",
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
 				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
 				"ScorePosition": {
 					"X": 1,
 					"Y": 1
@@ -129,10 +142,11 @@
 					"de": "Level 4",
 					"en": "Level 4"
 				},
-				"DefaultImage": "",
-				"ClickImage": "",
-				"SuccessImage": "",
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
 				"ClickSound": "",
+				"BackgroundImage": "gameBackground2",
 				"ScorePosition": {
 					"X": 1,
 					"Y": 1
@@ -145,10 +159,11 @@
 					"de": "Level 5",
 					"en": "Level 5"
 				},
-				"DefaultImage": "",
-				"ClickImage": "",
-				"SuccessImage": "",
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
 				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
 				"ScorePosition": {
 					"X": 1,
 					"Y": 1
@@ -161,10 +176,11 @@
 					"de": "Level 6",
 					"en": "Level 6"
 				},
-				"DefaultImage": "",
-				"ClickImage": "",
-				"SuccessImage": "",
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
 				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
 				"ScorePosition": {
 					"X": 1,
 					"Y": 1
@@ -177,10 +193,11 @@
 					"de": "Level 7",
 					"en": "Level 7"
 				},
-				"DefaultImage": "",
-				"ClickImage": "",
-				"SuccessImage": "",
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
 				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
 				"ScorePosition": {
 					"X": 1,
 					"Y": 1
@@ -193,10 +210,11 @@
 					"de": "Level 8",
 					"en": "Level 8"
 				},
-				"DefaultImage": "",
-				"ClickImage": "",
-				"SuccessImage": "",
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
 				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
 				"ScorePosition": {
 					"X": 1,
 					"Y": 1

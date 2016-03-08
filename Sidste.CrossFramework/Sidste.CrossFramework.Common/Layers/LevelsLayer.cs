@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using CocosSharp;
 using Sidste.CrossFramework.Common.Configuration;
+using System.Linq;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
-    public class LevelsLayer : CCLayerColor
+    public class LevelsLayer : CCLayerGradient
     {
         private readonly Configuration.Configuration _configuration;
 
-        public LevelsLayer()
-            : base(CCColor4B.Orange)
+        public LevelsLayer() : base(CCColor4B.Blue, new CCColor4B(127, 200, 205))
         {
             _configuration = Configuration.Configuration.Load();
         }
@@ -20,18 +20,41 @@ namespace Sidste.CrossFramework.Common.Layers
 
             CCRect bounds = VisibleBoundsWorldspace;
 
+            RenderLevels(bounds);
+            RenderBackButton();
+        }
+
+        private void RenderBackButton()
+        {
+            DefaultButton backButtonDefinition = _configuration.LevelLayer.BackButton;
+            var backButton = new CCMenuItemImage(backButtonDefinition.DefaultImage, backButtonDefinition.ClickImage, BackToMenu);
+            var backMenu = new CCMenu(backButton)
+            {
+                Position = new CCPoint(backButtonDefinition.Position.X, backButtonDefinition.Position.Y)
+            };
+            AddChild(backMenu);
+
+            var backLabel = new CCLabel(backButtonDefinition.Text["de"], Fonts.MainFont, 36);
+            backLabel.Position = backButton.PositionWorldspace;
+            AddChild(backLabel);
+        }
+
+        private void RenderLevels(CCRect bounds)
+        {
             var levelButtons = new List<CCMenuItem>();
             foreach (LevelDefinition level in _configuration.LevelLayer.Levels)
             {
-                var levelLabel = new CCLabel(level.Text["de"], "Arial", 36);
-                var levelButton = new CCMenuItemLabel(levelLabel, StartGame) {Name = level.Key};
+                var levelButton = new CCMenuItemImage(level.DefaultImage, level.ClickImage, StartGame)
+                {
+                    Name = level.Key
+                };
                 levelButtons.Add(levelButton);
             }
             var levelsMenu = new CCMenu(levelButtons.ToArray())
             {
                 Position = new CCPoint(bounds.Size.Width / 2, bounds.Size.Height / 2),
                 AnchorPoint = CCPoint.AnchorMiddle,
-                ContentSize = new CCSize(bounds.Size.Width - 200, bounds.Size.Height)
+                ContentSize = new CCSize(bounds.Size.Width - 100, bounds.Size.Height),
             };
             var itemsInColumns = new List<uint>();
             for (var i = 0; i < _configuration.LevelLayer.Layout.Rows; i++)
@@ -41,38 +64,34 @@ namespace Sidste.CrossFramework.Common.Layers
             levelsMenu.AlignItemsInColumns(itemsInColumns.ToArray());
             AddChild(levelsMenu);
 
-            var backLabel = new CCLabel(_configuration.LevelLayer.BackButton.Text["de"], "Arial", 36);
-            var backButton = new CCMenuItemLabel(backLabel, BackToMenu);
-            var backMenu = new CCMenu(backButton)
+            foreach (CCMenuItem levelButton in levelButtons)
             {
-                Position = new CCPoint(_configuration.LevelLayer.BackButton.Position.X, 
-                        _configuration.LevelLayer.BackButton.Position.Y)
-            };
-            AddChild(backMenu);
-
-            var touchListener = new CCEventListenerTouchAllAtOnce {OnTouchesEnded = OnTouchesEnded};
-            AddEventListener(touchListener, this);
-        }
-
-        void StartGame(object sender)
-        {
-            var gameView = GameLayer.CreateScene(GameView, ((CCMenuItemLabel)sender).Name);
-            var transition = new CCTransitionProgressInOut(0.2f, gameView);
-            Director.ReplaceScene(transition);
-        }
-
-        void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
-        {
-            if (touches.Count > 0)
-            {
-                // Perform touch handling here
+                var levelText = _configuration.LevelLayer.Levels.FirstOrDefault(x => x.Key == levelButton.Name).Text["de"];
+                var levelLabel = new CCLabel(levelText, Fonts.MainFont, 48)
+                {
+                    Position = levelButton.PositionWorldspace
+                };
+                AddChild(levelLabel);
             }
         }
 
-        void BackToMenu(object backButton)
+        private void StartGame(object sender)
+        {
+            string levelKey = ((CCMenuItem)sender).Name;
+            var gameView = GameLayer.CreateScene(GameView, levelKey);
+            GoToScene(gameView, "pop");
+        }
+
+        private void BackToMenu(object sender)
         {
             var menuLayer = MenuLayer.CreateScene(GameView);
-            var transitionToGameOver = new CCTransitionProgressInOut(0.2f, menuLayer);
+            GoToScene(menuLayer, _configuration.LevelLayer.BackButton.ClickSound);
+        }
+
+        private void GoToScene(CCScene scene, string effectName)
+        {
+            CCAudioEngine.SharedEngine.PlayEffect(effectName);
+            var transitionToGameOver = new CCTransitionProgressInOut(0.2f, scene);
             Director.ReplaceScene(transitionToGameOver);
         }
 

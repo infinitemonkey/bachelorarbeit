@@ -197,5 +197,23 @@
     <BundleResource Include="Content\Images\Hd\home_2.png" />
     <BundleResource Include="Content\Images\Hd\home_3.png" />
     <BundleResource Include="Content\Images\Hd\home_4.png" />
+    <BundleResource Include="Content\Sounds\backgroundMusic.mp3" />
+    <BundleResource Include="Content\Images\Ld\level_1.png" />
+    <BundleResource Include="Content\Images\Ld\level_2.png" />
+    <BundleResource Include="Content\Images\Ld\level_3.png" />
+    <BundleResource Include="Content\Images\Ld\level_4.png" />
+    <BundleResource Include="Content\Images\Hd\level_1.png" />
+    <BundleResource Include="Content\Images\Hd\level_2.png" />
+    <BundleResource Include="Content\Images\Hd\level_3.png" />
+    <BundleResource Include="Content\Images\Hd\level_4.png" />
+    <BundleResource Include="Content\Images\Ld\logo2.png" />
+    <BundleResource Include="Content\Images\Hd\logo2.png" />
+    <BundleResource Include="Content\Sounds\pop.wav" />
+    <BundleResource Include="Content\Images\Ld\gameBackground.png" />
+    <BundleResource Include="Content\Images\Hd\gameBackground.png" />
+    <BundleResource Include="Content\Images\Ld\gameBackground2.png" />
+    <BundleResource Include="Content\Images\Hd\gameBackground2.png" />
+    <BundleResource Include="Content\Images\Ld\menuBackground.png" />
+    <BundleResource Include="Content\Images\Hd\menuBackground.png" />
   </ItemGroup>
 </Project>

@@ -7,7 +7,7 @@ namespace Sidste.CrossFramework.Common.Layers
     {
         private GameLayer GameLayer { get { return (GameLayer)Parent; } }
             
-        public PauseLayer() : base(CCColor4B.Aquamarine)
+        public PauseLayer() : base(CCColor4B.Black)
         {
         }
 
@@ -21,7 +21,7 @@ namespace Sidste.CrossFramework.Common.Layers
             drawNode.Opacity = 50;
             AddChild(drawNode);
             var shape = new CCRect(0, bounds.Center.Y - 120, bounds.MaxX, 200);
-            drawNode.DrawRect(shape, new CCColor4B(0, 0, 0, 100));
+            drawNode.DrawRect(shape, new CCColor4B(0, 0, 0, 150));
 
             CCLabel pauseLabel = new CCLabel("GAME PAUSED.", "Arial", 60) {Position = bounds.Center};
             AddChild(pauseLabel);
@@ -31,9 +31,15 @@ namespace Sidste.CrossFramework.Common.Layers
             resumeLabel.PositionY = bounds.Center.Y - 50;
             AddChild(resumeLabel);
 
+            var scaleUp = new CCScaleBy(1, 1.3f);
+            var scaleDown = scaleUp.Reverse();
+            var moveSeq = new CCSequence(new CCEaseBackInOut(scaleUp), new CCEaseBackInOut(scaleDown));
+            CCRepeatForever repeatedAction = new CCRepeatForever(moveSeq);
+            resumeLabel.RunAction(repeatedAction);
+
             AddChild(MenuHelper.CreateHomeButton(bounds, BackToMenu));
 
-            Opacity = 150;
+            Opacity = 180;
 
             var touchListener = new CCEventListenerTouchAllAtOnce { OnTouchesEnded = OnTouchesEnded };
             AddEventListener(touchListener, this);
@@ -48,8 +54,8 @@ namespace Sidste.CrossFramework.Common.Layers
         {
             if (touches.Count > 0)
             {
-                Parent.Resume();
-                Parent.RemoveChild(this);
+                GameLayer.Resume();
+                GameLayer.RemoveChild(this);
             }
         }
     }
