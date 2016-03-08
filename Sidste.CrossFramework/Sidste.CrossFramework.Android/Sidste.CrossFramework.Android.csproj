@@ -14,7 +14,7 @@
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>Sidste.CrossFramework.Android</AssemblyName>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -38,35 +38,29 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CocosSharp, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CocosSharp.1.7.1.0\lib\MonoAndroid10\CocosSharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Lidgren.Network, Version=2012.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CocosSharp.1.7.1.0\lib\MonoAndroid10\Lidgren.Network.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MonoGame.Framework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CocosSharp.1.7.1.0\lib\MonoAndroid10\MonoGame.Framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Portable.Ninject.3.3.1\lib\monoandroid\Ninject.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="OpenTK-1.0" />
+    <Reference Include="CocosSharp, Version=1.7.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CocosSharp.1.7.1.0\lib\MonoAndroid10\CocosSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Lidgren.Network, Version=2012.1.7.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CocosSharp.1.7.1.0\lib\MonoAndroid10\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CocosSharp.1.7.1.0\lib\MonoAndroid10\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Portable.Ninject.3.3.1\lib\monoandroid\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sidste.CrossFramework.Common\Sideste.CrossFramework.Common.csproj">
@@ -101,6 +95,39 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Content\Images\Hd\tutorial_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\levels_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\levels_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\levels_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\levels_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\logo.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\options_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\options_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\options_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\options_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\pause_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\pause_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\pause_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\pause_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\play_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\play_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\play_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\play_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\sound_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\sound_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\sound_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\sound_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\tutorial_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\tutorial_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\tutorial_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\tutorial_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\home_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\home_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\home_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\home_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\home_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\home_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\home_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\home_4.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Content\Images\Hd\levels_1.png" />

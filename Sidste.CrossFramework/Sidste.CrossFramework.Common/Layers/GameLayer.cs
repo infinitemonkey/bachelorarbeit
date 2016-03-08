@@ -46,8 +46,8 @@ namespace Sidste.CrossFramework.Common.Layers
             _scoreLabel = new CCLabel(String.Format("Score: {0}", 0), "Bradley Hand", 36f)
             { 
                 Color = CCColor3B.White,
-                Position = new CCPoint(55, bounds.MaxY - 20),
-                HorizontalAlignment = CCTextAlignment.Center
+                Position = new CCPoint(10, bounds.MaxY - 50),
+                AnchorPoint = CCPoint.Zero
             };
             AddChild(_scoreLabel);
 

@@ -7,7 +7,7 @@ namespace Sidste.CrossFramework.Common.Layers
     {
         private GameLayer GameLayer { get { return (GameLayer)Parent; } }
             
-        public PauseLayer() : base(CCColor4B.Green)
+        public PauseLayer() : base(CCColor4B.Aquamarine)
         {
         }
 
@@ -16,6 +16,12 @@ namespace Sidste.CrossFramework.Common.Layers
             base.AddedToScene();
 
             CCRect bounds = VisibleBoundsWorldspace;
+
+            var drawNode = new CCDrawNode();
+            drawNode.Opacity = 50;
+            AddChild(drawNode);
+            var shape = new CCRect(0, bounds.Center.Y - 120, bounds.MaxX, 200);
+            drawNode.DrawRect(shape, new CCColor4B(0, 0, 0, 100));
 
             CCLabel pauseLabel = new CCLabel("GAME PAUSED.", "Arial", 60) {Position = bounds.Center};
             AddChild(pauseLabel);
