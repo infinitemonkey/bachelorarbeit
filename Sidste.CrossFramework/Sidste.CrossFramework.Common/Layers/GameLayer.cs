@@ -2,12 +2,12 @@
 using System.Linq;
 using CocosSharp;
 using Sidste.CrossFramework.Common.Configuration;
+using Sideste.CrossFramework.Common;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
-    public class GameLayer : CCLayerGradient
+    public class GameLayer : BaseLayer
     {
-        private readonly Configuration.Configuration _configuration;
         private readonly string _levelKey;
 
         private CCLabel _scoreLabel;
@@ -17,7 +17,6 @@ namespace Sidste.CrossFramework.Common.Layers
         public GameLayer(string levelKey) : base(CCColor4B.Blue, new CCColor4B(127, 200, 205))
         {
             _levelKey = levelKey;
-            _configuration = Configuration.Configuration.Load();
         }
 
         protected override void AddedToScene()
@@ -27,8 +26,8 @@ namespace Sidste.CrossFramework.Common.Layers
             CCRect bounds = VisibleBoundsWorldspace;
 
             LevelDefinition levelDefinition = string.IsNullOrWhiteSpace(_levelKey) 
-                ? _configuration.LevelLayer.Levels.First() 
-                : _configuration.LevelLayer.Levels.FirstOrDefault(x => x.Key == _levelKey);
+                ? Configuration.LevelLayer.Levels.First() 
+                : Configuration.LevelLayer.Levels.FirstOrDefault(x => x.Key == _levelKey);
 
             SetBackground(bounds, levelDefinition.BackgroundImage);
             InitializeGameLayer(bounds);

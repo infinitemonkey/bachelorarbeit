@@ -17,9 +17,6 @@ namespace Sidste.CrossFramework.Common
                 var contentSearchPaths = new List<string>() { "Fonts", "Sounds" };
                 CCSizeI viewSize = gameView.ViewSize;
 
-                //int width = 750;
-                //int height = 1334;
-
                 // Set world dimensions
                 gameView.DesignResolution = new CCSizeI(viewSize.Width, viewSize.Height);
 

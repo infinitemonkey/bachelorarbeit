@@ -1,8 +1,9 @@
 ﻿using CocosSharp;
+using Sideste.CrossFramework.Common;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
-    public class TutorialLayer : CCLayerColor
+    public class TutorialLayer : BaseLayer
     {
         private CCLabel title, message, next;
         //private CCSprite tutorialImage;

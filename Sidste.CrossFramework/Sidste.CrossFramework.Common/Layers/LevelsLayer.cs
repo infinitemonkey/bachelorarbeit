@@ -2,16 +2,14 @@
 using CocosSharp;
 using Sidste.CrossFramework.Common.Configuration;
 using System.Linq;
+using Sideste.CrossFramework.Common;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
-    public class LevelsLayer : CCLayerGradient
+    public class LevelsLayer : BaseLayer
     {
-        private readonly Configuration.Configuration _configuration;
-
-        public LevelsLayer() : base(CCColor4B.Blue, new CCColor4B(127, 200, 205))
+        public LevelsLayer() : base(CCColor4B.Blue)
         {
-            _configuration = Configuration.Configuration.Load();
         }
 
         protected override void AddedToScene()
@@ -26,7 +24,7 @@ namespace Sidste.CrossFramework.Common.Layers
 
         private void RenderBackButton()
         {
-            DefaultButton backButtonDefinition = _configuration.LevelLayer.BackButton;
+            DefaultButton backButtonDefinition = Configuration.LevelLayer.BackButton;
             var backButton = new CCMenuItemImage(backButtonDefinition.DefaultImage, backButtonDefinition.ClickImage, BackToMenu);
             var backMenu = new CCMenu(backButton)
             {
@@ -42,7 +40,7 @@ namespace Sidste.CrossFramework.Common.Layers
         private void RenderLevels(CCRect bounds)
         {
             var levelButtons = new List<CCMenuItem>();
-            foreach (LevelDefinition level in _configuration.LevelLayer.Levels)
+            foreach (LevelDefinition level in Configuration.LevelLayer.Levels)
             {
                 var levelButton = new CCMenuItemImage(level.DefaultImage, level.ClickImage, StartGame)
                 {
@@ -57,16 +55,16 @@ namespace Sidste.CrossFramework.Common.Layers
                 ContentSize = new CCSize(bounds.Size.Width - 100, bounds.Size.Height),
             };
             var itemsInColumns = new List<uint>();
-            for (var i = 0; i < _configuration.LevelLayer.Layout.Rows; i++)
+            for (var i = 0; i < Configuration.LevelLayer.Layout.Rows; i++)
             {
-                itemsInColumns.Add(_configuration.LevelLayer.Layout.Cols);
+                itemsInColumns.Add(Configuration.LevelLayer.Layout.Cols);
             }
             levelsMenu.AlignItemsInColumns(itemsInColumns.ToArray());
             AddChild(levelsMenu);
 
             foreach (CCMenuItem levelButton in levelButtons)
             {
-                var levelText = _configuration.LevelLayer.Levels.FirstOrDefault(x => x.Key == levelButton.Name).Text["de"];
+                var levelText = Configuration.LevelLayer.Levels.FirstOrDefault(x => x.Key == levelButton.Name).Text["de"];
                 var levelLabel = new CCLabel(levelText, Fonts.MainFont, 48)
                 {
                     Position = levelButton.PositionWorldspace
@@ -85,7 +83,7 @@ namespace Sidste.CrossFramework.Common.Layers
         private void BackToMenu(object sender)
         {
             var menuLayer = MenuLayer.CreateScene(GameView);
-            GoToScene(menuLayer, _configuration.LevelLayer.BackButton.ClickSound);
+            GoToScene(menuLayer, Configuration.LevelLayer.BackButton.ClickSound);
         }
 
         private void GoToScene(CCScene scene, string effectName)

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using CocosSharp;
+using Sideste.CrossFramework.Common;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
-    public class OptionsLayer : CCLayerColor
+    public class OptionsLayer : BaseLayer
     {
         public OptionsLayer() : base(new CCColor4B(150, 10, 20))
         {

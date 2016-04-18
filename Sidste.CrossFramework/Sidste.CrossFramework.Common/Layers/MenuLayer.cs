@@ -1,14 +1,12 @@
 ﻿using CocosSharp;
+using Sideste.CrossFramework.Common;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
-    public class MenuLayer : CCLayerColor
+    public class MenuLayer : BaseLayer
     {
-        private readonly Configuration.Configuration _configuration;
-
         public MenuLayer() : base(CCColor4B.AliceBlue)
         {
-            _configuration = Configuration.Configuration.Load();
         }
 
         protected override void AddedToScene()
@@ -17,10 +15,10 @@ namespace Sidste.CrossFramework.Common.Layers
 
             CCRect bounds = VisibleBoundsWorldspace;
 
-            CCAudioEngine.SharedEngine.PlayBackgroundMusic(_configuration.Menu.BackgroundSound, true);
+            CCAudioEngine.SharedEngine.PlayBackgroundMusic(Configuration.Menu.BackgroundSound, true);
             CCAudioEngine.SharedEngine.BackgroundMusicVolume = 0.5f;
 
-            SetBackground(bounds, _configuration.Menu.BackgroundImage);
+            SetBackground(bounds, Configuration.Menu.BackgroundImage);
 
             CreateMenu(bounds);
             CreateLogo(bounds);
@@ -33,27 +31,28 @@ namespace Sidste.CrossFramework.Common.Layers
             bg.Position = bounds.Center;
             AddChild(bg);
 
+            // test -------
             var topOfscreen = bounds.Center.Offset(0f, bounds.MaxY/2f);
             var meteor = new CCParticleMeteor(new CCPoint(-500, 2000));
             var moveTo = new CCMoveTo(3.0f, new CCPoint(bounds.MaxX + 500, -300));
             var seq = new CCSequence(new CCEaseOut(moveTo, 2), new CCMoveTo(5, moveTo.PositionEnd), new CCMoveTo(0, new CCPoint(-500, 2000)));
             meteor.RunAction(new CCRepeatForever(seq));
-
             AddChild(meteor);
 
             var galaxy = new CCParticleGalaxy(topOfscreen.Offset(200.0f, -100.0f));
             AddChild(galaxy);
+            // ------------
         }
 
         private void CreateMenu(CCRect bounds)
         {
-            var menuItemStart = new CCMenuItemImage(_configuration.Menu.PlayButton.DefaultImage, _configuration.Menu.PlayButton.ClickImage, StartGame);
+            var menuItemStart = new CCMenuItemImage(Configuration.Menu.PlayButton.DefaultImage, Configuration.Menu.PlayButton.ClickImage, StartGame);
             menuItemStart.Scale = 1.4f;
-            var menuItemLevels = new CCMenuItemImage(_configuration.Menu.LevelsButton.DefaultImage, _configuration.Menu.LevelsButton.ClickImage, StartLevels);
+            var menuItemLevels = new CCMenuItemImage(Configuration.Menu.LevelsButton.DefaultImage, Configuration.Menu.LevelsButton.ClickImage, StartLevels);
             menuItemLevels.Scale = 1.4f;
-            var menuItemOptions = new CCMenuItemImage(_configuration.Menu.OptionsButton.DefaultImage, _configuration.Menu.OptionsButton.ClickImage, StartOptions);
+            var menuItemOptions = new CCMenuItemImage(Configuration.Menu.OptionsButton.DefaultImage, Configuration.Menu.OptionsButton.ClickImage, StartOptions);
             menuItemOptions.Scale = 1.4f;
-            var menuItemTutorial = new CCMenuItemImage(_configuration.Menu.HelpButton.DefaultImage, _configuration.Menu.HelpButton.ClickImage, StartTutorial);
+            var menuItemTutorial = new CCMenuItemImage(Configuration.Menu.HelpButton.DefaultImage, Configuration.Menu.HelpButton.ClickImage, StartTutorial);
             menuItemTutorial.Scale = 1.4f;
 
             var menu = new CCMenu(menuItemStart, menuItemLevels, menuItemOptions, menuItemTutorial)
@@ -66,8 +65,8 @@ namespace Sidste.CrossFramework.Common.Layers
             AddChild(menu);
 
             var menuItemSound = new CCMenuItemToggle(ToggleSound, 
-                new CCMenuItemImage(_configuration.Menu.SoundButton.DefaultImage, _configuration.Menu.SoundButton.DefaultImage, null), 
-                new CCMenuItemImage(_configuration.Menu.SoundButton.ClickImage, _configuration.Menu.SoundButton.ClickImage, null));
+                new CCMenuItemImage(Configuration.Menu.SoundButton.DefaultImage, Configuration.Menu.SoundButton.DefaultImage, null), 
+                new CCMenuItemImage(Configuration.Menu.SoundButton.ClickImage, Configuration.Menu.SoundButton.ClickImage, null));
             var menuBottom = new CCMenu(menuItemSound)
             {
                 Position = new CCPoint(bounds.Size.Width / 2, bounds.MinY + 100)
@@ -97,7 +96,7 @@ namespace Sidste.CrossFramework.Common.Layers
             }
             else
             {
-                CCAudioEngine.SharedEngine.PlayBackgroundMusic(_configuration.Menu.BackgroundSound, true);
+                CCAudioEngine.SharedEngine.PlayBackgroundMusic(Configuration.Menu.BackgroundSound, true);
             }
         }
 

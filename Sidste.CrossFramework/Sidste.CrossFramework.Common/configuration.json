@@ -1,13 +1,13 @@
 ﻿{
 	"Menu": {
-		"BackgroundImage": "menuBackground",
+		"BackgroundImage": "gameBackground",
 		"BackgroundSound": "backgroundMusic",
 		"PlayButton": {
 			"Text": {
 				"de": "Spielen",
 				"en": "Play"
 			},
-			"DefaultImage": "play_1",
+			"DefaultImage": "play_2",
 			"ClickImage": "play_3",
 			"ClickSound": "pop",
 			"Position": {
@@ -21,7 +21,7 @@
 				"en": "Levels"
 			},
 			"DefaultImage": "levels_1",
-			"ClickImage": "levels_3",
+			"ClickImage": "levels_4",
 			"ClickSound": "pop",
 			"Position": {
 				"X": 1,
@@ -208,6 +208,23 @@
 				"Key": "LevelEight",
 				"Text": {
 					"de": "Level 8",
+					"en": "Level 8"
+				},
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
+				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{}"
+			},
+			{
+				"Key": "LevelNine",
+				"Text": {
+					"de": "Testest",
 					"en": "Level 8"
 				},
 				"DefaultImage": "level_1",

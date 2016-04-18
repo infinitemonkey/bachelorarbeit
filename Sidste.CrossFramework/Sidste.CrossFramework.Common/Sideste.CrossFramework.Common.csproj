@@ -49,6 +49,7 @@
     <Compile Include="Layers\GameLogicLayer.cs" />
     <Compile Include="Helper\MenuHelper.cs" />
     <Compile Include="Constants\Fonts.cs" />
+    <Compile Include="Layers\BaseLayer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
