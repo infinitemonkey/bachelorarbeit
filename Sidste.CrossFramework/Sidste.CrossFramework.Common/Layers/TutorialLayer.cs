@@ -4,18 +4,18 @@ namespace Sidste.CrossFramework.Common.Layers
 {
     public class TutorialLayer : CCLayerColor
     {
-        CCLabel title, message, next;
-        //CCSprite tutorialImage;
-        string[] tutorials = {"Draw lines to same color \nbubbles to score points.",
-            "Bubbles stop growing when chained",
+        private CCLabel title, message, next;
+        //private CCSprite tutorialImage;
+        private string[] tutorials = {"Do this and that \nand maybe that.",
+            "And then do this to do this",
             "Bigger the bubble, \nbigger the score",
             "Chain multiple bubbles \nfor score multiplier",
             "Have Fun!"};
 
-        int currentTutorial = 0;
-        string titleMessage;
+        private int currentTutorial = 0;
+        private string titleMessage;
 
-        public TutorialLayer(bool startGameAfter) : base ()
+        public TutorialLayer(bool startGameAfter) : base(new CCColor4B(127, 200, 205))
         {
             titleMessage = "How to play: Part {0} of " + tutorials.Length;
 
@@ -26,7 +26,7 @@ namespace Sidste.CrossFramework.Common.Layers
                 {
                     if(startGameAfter)
                     {
-                        var mainGame = GameLayer.CreateScene(GameView, "none");
+                        var mainGame = GameLayer.CreateScene(GameView, null);
                         var transition = new CCTransitionProgressInOut(0.2f, mainGame);
                         Director.ReplaceScene(transition);
                         RemoveAllChildren(true);
@@ -44,10 +44,7 @@ namespace Sidste.CrossFramework.Common.Layers
                     SetCurrentMessages();
                 }
             };
-
-            AddEventListener (touchListener, this);
-            Color = new CCColor3B(127, 200, 205);
-            Opacity = 255;
+            AddEventListener(touchListener, this);
         }
 
         protected override void AddedToScene ()
@@ -64,7 +61,6 @@ namespace Sidste.CrossFramework.Common.Layers
                 VerticalAlignment = CCVerticalTextAlignment.Center,
                 AnchorPoint = CCPoint.AnchorMiddle
             };
-
             AddChild (title);
 
             next = new CCLabel ("NEXT", "Roboto-Light.ttf", 36, CCLabelFormat.SystemFont) {
@@ -74,7 +70,6 @@ namespace Sidste.CrossFramework.Common.Layers
                 VerticalAlignment = CCVerticalTextAlignment.Center,
                 AnchorPoint = CCPoint.AnchorMiddle
             };
-
             AddChild (next);
 
             message = new CCLabel(string.Empty, "Roboto-Light.ttf", 48, CCLabelFormat.SystemFont) {
@@ -84,7 +79,6 @@ namespace Sidste.CrossFramework.Common.Layers
                 VerticalAlignment = CCVerticalTextAlignment.Center,
                 AnchorPoint = CCPoint.AnchorMiddle
             };
-
             AddChild(message);
 
 
@@ -115,7 +109,6 @@ namespace Sidste.CrossFramework.Common.Layers
             var layer = new TutorialLayer(startGameAfter);
 
             scene.AddChild(layer);
-
             return scene;
         }
     }

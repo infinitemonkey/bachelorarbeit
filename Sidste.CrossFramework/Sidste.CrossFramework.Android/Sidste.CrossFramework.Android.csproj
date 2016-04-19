@@ -128,6 +128,24 @@
     <AndroidAsset Include="Assets\Content\Images\Hd\home_2.png" />
     <AndroidAsset Include="Assets\Content\Images\Hd\home_3.png" />
     <AndroidAsset Include="Assets\Content\Images\Hd\home_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\level_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\level_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\level_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\level_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\level_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\level_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\level_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\level_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\logo2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\logo2.png" />
+    <AndroidAsset Include="Assets\Content\Sounds\backgroundMusic.mp3" />
+    <AndroidAsset Include="Assets\Content\Sounds\pop.wav" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\gameBackground.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\gameBackground.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\gameBackground2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\gameBackground2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\menuBackground.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\menuBackground.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Content\Images\Hd\levels_1.png" />

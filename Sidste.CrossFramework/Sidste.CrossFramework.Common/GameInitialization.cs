@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CocosSharp;
 using Sidste.CrossFramework.Common.Layers;
+using CocosDenshion;
 
 namespace Sidste.CrossFramework.Common
 {
@@ -37,6 +38,8 @@ namespace Sidste.CrossFramework.Common
                 //}
 
                 gameView.ContentManager.SearchPaths = contentSearchPaths;
+
+                CCAudioEngine.SharedEngine.PreloadEffect("pop");
 
                 CCScene gameScene = new CCScene(gameView);
                 gameScene.AddLayer(new MenuLayer());

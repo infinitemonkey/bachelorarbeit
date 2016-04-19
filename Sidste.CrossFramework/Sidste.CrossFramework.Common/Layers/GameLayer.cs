@@ -26,11 +26,13 @@ namespace Sidste.CrossFramework.Common.Layers
 
             CCRect bounds = VisibleBoundsWorldspace;
 
-            InitializeGameLayer(bounds);
-
             LevelDefinition levelDefinition = string.IsNullOrWhiteSpace(_levelKey) 
                 ? _configuration.LevelLayer.Levels.First() 
                 : _configuration.LevelLayer.Levels.FirstOrDefault(x => x.Key == _levelKey);
+
+            SetBackground(bounds, levelDefinition.BackgroundImage);
+            InitializeGameLayer(bounds);
+
             AddChild(new GameLogicLayer(levelDefinition), 500);
 
             //test
@@ -39,6 +41,14 @@ namespace Sidste.CrossFramework.Common.Layers
                     _elapsedTime = _elapsedTime + (int)t;
                     _scoreLabel.Text = "Score: " + _elapsedTime.ToString();
                 }, 1.0f);
+        }
+
+        private void SetBackground(CCRect bounds, string backgroundImage)
+        {
+            var bg = new CCSprite(backgroundImage);
+            bg.ContentSize = new CCSize(bounds.MaxX, bounds.MaxY);
+            bg.Position = bounds.Center;
+            AddChild(bg);
         }
 
         private void InitializeGameLayer(CCRect bounds)
