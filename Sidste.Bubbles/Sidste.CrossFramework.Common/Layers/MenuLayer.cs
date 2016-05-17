@@ -124,13 +124,6 @@ namespace Sidste.CrossFramework.Common.Layers
             GoToScene(tutorialView);
         }
 
-        private void GoToScene(CCScene scene)
-        {
-            CCAudioEngine.SharedEngine.PlayEffect("pop");
-            var transition = new CCTransitionProgressInOut(0.2f, scene);
-            Director.ReplaceScene(transition);
-        }
-
         public static CCScene CreateScene(CCGameView gameView)
         {
             var scene = new CCScene(gameView);

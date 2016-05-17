@@ -99,11 +99,23 @@ namespace Sidste.CrossFramework.Common.Layers
             BackToMenu();
         }
 
+        public void NextLevel()
+        {
+            string nextLevelKey = Configuration.LevelLayer.Levels[Configuration.LevelLayer.Levels.IndexOf(LevelDefinition) + 1].Key;
+            var gameLayer = GameLayer.CreateScene(GameView, nextLevelKey);
+            GoToScene(gameLayer);
+        }
+
+        public void ToLevels()
+        {
+            var levelsLayer = LevelsLayer.CreateScene(GameView);
+            GoToScene(levelsLayer);
+        }
+
         private void BackToMenu()
         {
             var menuLayer = MenuLayer.CreateScene(GameView);
-            var transitionToMenu = new CCTransitionProgressInOut(0.2f, menuLayer);
-            Director.ReplaceScene(transitionToMenu);
+            GoToScene(menuLayer);
         }
 
         public static CCScene CreateScene(CCGameView gameView, string levelKey)

@@ -7,7 +7,7 @@ namespace Sidste.CrossFramework.Common.Configuration
         public string BackgroundImage { get; set; }
         public DefaultButton BackButton { get; set; }
         public Layout Layout { get; set; }
-        public IEnumerable<LevelDefinition> Levels { get; set; }
+        public IList<LevelDefinition> Levels { get; set; }
 	}
 }
 

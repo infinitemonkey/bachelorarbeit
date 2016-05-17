@@ -36,7 +36,7 @@ namespace Sidste.CrossFramework.Common.Layers
             get
             { 
                 return ElapsedTime >= _gameConfiguration.MaxDuration
-                        && _currentScore >= _gameConfiguration.ScoreToReach;
+                        || _currentScore >= _gameConfiguration.ScoreToReach;
             }
         }
 
@@ -226,7 +226,7 @@ namespace Sidste.CrossFramework.Common.Layers
                 if (ShouldEndGame) 
                 {
                     GameLayer.SetScore(_currentScore);
-                    GameLayer.GameOver(true);
+                    GameLayer.GameOver(_currentScore >= _gameConfiguration.ScoreToReach);
                     return;
                 }
                 _visibleBubbles.Add(AddBubble());

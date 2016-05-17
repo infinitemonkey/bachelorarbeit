@@ -48,7 +48,7 @@ namespace Sidste.CrossFramework.Common.Layers
             CCRepeatForever repeatedAction = new CCRepeatForever(moveSeq);
             resumeLabel.RunAction(repeatedAction);
 
-            AddChild(MenuHelper.CreateHomeButton(bounds, BackToMenu));
+            AddChild(MenuHelper.CreateEndGameNavigation(bounds, BackToMenu, ToLevels, NextLevel));
 
             Opacity = 180;
 
@@ -59,6 +59,16 @@ namespace Sidste.CrossFramework.Common.Layers
         private void BackToMenu(object sender)
         {
             GameLayer.EndGame();
+        }
+
+        private void ToLevels(object sender)
+        {
+            GameLayer.ToLevels();
+        }
+
+        private void NextLevel(object sender)
+        {
+            GameLayer.NextLevel();
         }
 
         private void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)

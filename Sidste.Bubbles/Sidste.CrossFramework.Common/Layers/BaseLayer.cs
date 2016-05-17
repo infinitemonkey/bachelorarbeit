@@ -21,25 +21,11 @@ namespace Sideste.CrossFramework.Common
         {
         }
 
-        protected override void AddedToScene()
+        protected void GoToScene(CCScene scene)
         {
-            base.AddedToScene();
-
-            // Use the bounds to layout the positioning of our drawable assets
-            CCRect bounds = VisibleBoundsWorldspace;
-
-            // Register for touch events
-            var touchListener = new CCEventListenerTouchAllAtOnce();
-            touchListener.OnTouchesEnded = OnTouchesEnded;
-            AddEventListener(touchListener, this);
-        }
-
-        void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
-        {
-            if (touches.Count > 0)
-            {
-                // Perform touch handling here
-            }
+            CCAudioEngine.SharedEngine.PlayEffect("pop");
+            var transition = new CCTransitionProgressInOut(0.2f, scene);
+            Director.ReplaceScene(transition);
         }
     }
 }

@@ -101,7 +101,7 @@
 					"Y": 1
 				},
 				"Content": "{ 
-					\"MaxDuration\": 60,
+					\"MaxDuration\": 2,
 					\"MaxColors\": 1,
 					\"GrowthTime\": 10,
 					\"ScoreToReach\": 10000
