@@ -14,7 +14,7 @@ namespace Sidste.CrossFramework.Common.Layers
 
         private int _elapsedTime = 0;
 
-        public GameLayer(string levelKey) : base(CCColor4B.Blue, new CCColor4B(127, 200, 205))
+        public GameLayer(string levelKey) : base(CCColor4B.Blue)
         {
             _levelKey = levelKey;
         }

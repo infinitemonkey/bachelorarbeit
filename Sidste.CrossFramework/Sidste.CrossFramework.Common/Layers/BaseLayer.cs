@@ -13,6 +13,10 @@ namespace Sideste.CrossFramework.Common
         {
         }
 
+        public BaseLayer(CCColor4B color) : base(CCColor4B.AliceBlue)
+        {
+        }
+
         protected override void AddedToScene()
         {
             base.AddedToScene();

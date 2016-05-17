@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using CocosSharp;
 using Sidste.CrossFramework.Common.Configuration;
+using Sideste.CrossFramework.Common;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
-    public class GameLogicLayer : CCLayer
+    public class GameLogicLayer : BaseLayer
     {
         private GameLayer GameLayer { get { return (GameLayer)Parent; } }
         private LevelDefinition _levelDefinition;
@@ -43,7 +44,6 @@ namespace Sidste.CrossFramework.Common.Layers
             };
             AddChild(content);
             // ----------------------------------------
-
 
             var touchListener = new CCEventListenerTouchAllAtOnce {OnTouchesEnded = OnTouchesEnded};
             AddEventListener(touchListener, this);

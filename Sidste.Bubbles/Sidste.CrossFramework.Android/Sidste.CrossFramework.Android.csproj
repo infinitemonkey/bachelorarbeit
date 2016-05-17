@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{C19E6C39-628E-4B16-8674-D94A6E08CDBF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Sidste.CrossFramework.Android</RootNamespace>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AssemblyName>Sidste.CrossFramework.Android</AssemblyName>
+    <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="OpenTK-1.0" />
+    <Reference Include="CocosSharp, Version=1.7.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CocosSharp.1.7.1.0\lib\MonoAndroid10\CocosSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Lidgren.Network, Version=2012.1.7.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CocosSharp.1.7.1.0\lib\MonoAndroid10\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CocosSharp.1.7.1.0\lib\MonoAndroid10\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+      <HintPath>..\packages\Portable.Ninject.3.3.1\lib\monoandroid\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sidste.CrossFramework.Common\Sideste.CrossFramework.Common.csproj">
+      <Project>{950912B5-ACE9-4022-9E4F-1D4AA2D73710}</Project>
+      <Name>Sideste.CrossFramework.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Content\Fonts\" />
+    <Folder Include="Assets\Content\Images\Ld\" />
+    <Folder Include="Assets\Content\Sounds\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\tutorial_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\levels_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\levels_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\levels_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\levels_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\logo.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\options_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\options_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\options_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\options_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\pause_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\pause_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\pause_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\pause_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\play_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\play_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\play_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\play_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\sound_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\sound_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\sound_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\sound_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\tutorial_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\tutorial_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\tutorial_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\tutorial_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\home_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\home_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\home_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\home_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\home_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\home_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\home_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\home_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\level_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\level_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\level_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\level_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\level_1.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\level_2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\level_3.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\level_4.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\logo2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\logo2.png" />
+    <AndroidAsset Include="Assets\Content\Sounds\backgroundMusic.mp3" />
+    <AndroidAsset Include="Assets\Content\Sounds\pop.wav" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\gameBackground.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\gameBackground.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\gameBackground2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\gameBackground2.png" />
+    <AndroidAsset Include="Assets\Content\Images\Hd\menuBackground.png" />
+    <AndroidAsset Include="Assets\Content\Images\Ld\menuBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\levels_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\levels_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\levels_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\levels_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\options_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\options_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\options_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\options_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\pause_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\pause_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\pause_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\pause_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\play_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\play_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\play_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\play_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\sound_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\sound_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\sound_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\sound_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\tutorial_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\tutorial_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\Images\Hd\tutorial_3.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>

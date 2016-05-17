@@ -1,0 +1,330 @@
+﻿{
+	"Menu": {
+		"BackgroundImage": "menuBackground",
+		"BackgroundSound": "backgroundMusic",
+		"PlayButton": {
+			"Text": {
+				"de": "Spielen",
+				"en": "Play"
+			},
+			"DefaultImage": "play_1",
+			"ClickImage": "play_3",
+			"ClickSound": "pop",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"LevelsButton": {
+			"Text": {
+				"de": "Levels",
+				"en": "Levels"
+			},
+			"DefaultImage": "levels_1",
+			"ClickImage": "levels_3",
+			"ClickSound": "pop",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"OptionsButton": {
+			"Text": {
+				"de": "Optionen",
+				"en": "Options"
+			},
+			"DefaultImage": "options_1",
+			"ClickImage": "options_3",
+			"ClickSound": "pop",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"HelpButton": {
+			"Text": {
+				"de": "Hilfe",
+				"en": "Help"
+			},
+			"DefaultImage": "tutorial_1",
+			"ClickImage": "tutorial_3",
+			"ClickSound": "pop",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"SoundButton": {
+			"Text": null,
+			"DefaultImage": "sound_2",
+			"ClickImage": "sound_4",
+			"ClickSound": "pop",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		}
+	},
+	"LevelLayer": {
+		"BackgroundImage": "",
+		"BackButton": {
+			"Text": {
+				"de": "Zurück",
+				"en": "Back"
+			},
+			"DefaultImage": "level_1",
+			"ClickImage": "level_3",
+			"ClickSound": "pop",
+			"Position": {
+				"X": 370,
+				"Y": 100
+			}
+		},
+		"Layout": {
+			"Cols": 2,
+			"Rows": 5
+		},
+		"Levels": [
+			{
+				"Key": "LevelOne",
+				"Text": {
+					"de": "Level 1",
+					"en": "Level 1"
+				},
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
+				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{ 
+					\"MaxDuration\": 60,
+					\"MaxColors\": 1,
+					\"GrowthTime\": 10,
+					\"ScoreToReach\": 10000
+				}"
+			},
+			{
+				"Key": "LevelTwo",
+				"Text": {
+					"de": "Level 2",
+					"en": "Level 2"
+				},
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
+				"ClickSound": "",
+				"BackgroundImage": "gameBackground2",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{ 
+					\"MaxDuration\": 60,
+					\"MaxColors\": 2,
+					\"GrowthTime\": 8,
+					\"ScoreToReach\": 10000
+				}"
+			},
+			{
+				"Key": "LevelThree",
+				"Text": {
+					"de": "Level 3",
+					"en": "Level 3"
+				},
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
+				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{ 
+					\"MaxDuration\": 60,
+					\"MaxColors\": 2,
+					\"GrowthTime\": 6,
+					\"ScoreToReach\": 15000
+				}"
+			},
+			{
+				"Key": "LevelFour",
+				"Text": {
+					"de": "Level 4",
+					"en": "Level 4"
+				},
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
+				"ClickSound": "",
+				"BackgroundImage": "gameBackground2",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{ 
+					\"MaxDuration\": 60,
+					\"MaxColors\": 3,
+					\"GrowthTime\": 6,
+					\"ScoreToReach\": 20000
+				}"
+			},
+			{
+				"Key": "LevelFive",
+				"Text": {
+					"de": "Level 5",
+					"en": "Level 5"
+				},
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
+				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{ 
+					\"MaxDuration\": 60,
+					\"MaxColors\": 4,
+					\"GrowthTime\": 5,
+					\"ScoreToReach\": 15000
+				}"
+			},
+			{
+				"Key": "LevelSix",
+				"Text": {
+					"de": "Level 6",
+					"en": "Level 6"
+				},
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
+				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{ 
+					\"MaxDuration\": 50,
+					\"MaxColors\": 5,
+					\"GrowthTime\": 6,
+					\"ScoreToReach\": 20000
+				}"
+			},
+			{
+				"Key": "LevelSeven",
+				"Text": {
+					"de": "Level 7",
+					"en": "Level 7"
+				},
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
+				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{ 
+					\"MaxDuration\": 40,
+					\"MaxColors\": 5,
+					\"GrowthTime\": 5,
+					\"ScoreToReach\": 25000
+				}"
+			},
+			{
+				"Key": "LevelEight",
+				"Text": {
+					"de": "Level 8",
+					"en": "Level 8"
+				},
+				"DefaultImage": "level_1",
+				"ClickImage": "level_3",
+				"SuccessImage": "level_2",
+				"ClickSound": "",
+				"BackgroundImage": "gameBackground",
+				"ScorePosition": {
+					"X": 1,
+					"Y": 1
+				},
+				"Content": "{ 
+					\"MaxDuration\": 30,
+					\"MaxColors\": 5,
+					\"GrowthTime\": 4,
+					\"ScoreToReach\": 30000
+				}"
+			}
+		]
+	},
+	"OptionLayer": {
+		"BackgroundImage": "",
+		"BackButton": {
+			"Text": {
+				"de": "Zurück",
+				"en": "Back"
+			},
+			"DefaultImage": "",
+			"ClickImage": "",
+			"ClickSound": "",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"Layout": {
+			"Cols": 2,
+			"Rows": 5
+		},
+		"SoundOption": {
+			"Key": "SoundOption",
+			"Text": {
+				"de": "Musik",
+				"en": "Sound"
+			},
+			"OnImage": "",
+			"OffImage": "",
+			"ClickSound": "",
+			"Position": {
+				"X": 1,
+				"Y": 1
+			}
+		},
+		"Options": [
+			{
+				"Key": "OptionOne",
+				"Text": {
+					"de": "Option 1",
+					"en": "Option 1"
+				},
+				"OnImage": "",
+				"OffImage": "",
+				"ClickSound": "",
+				"Position": {
+					"X": 1,
+					"Y": 1
+				}
+			},
+			{
+				"Key": "OptionTwo",
+				"Text": {
+					"de": "Option 2",
+					"en": "Option 2"
+				},
+				"OnImage": "",
+				"OffImage": "",
+				"ClickSound": "",
+				"Position": {
+					"X": 1,
+					"Y": 1
+				}
+			}
+		]
+	}
+}

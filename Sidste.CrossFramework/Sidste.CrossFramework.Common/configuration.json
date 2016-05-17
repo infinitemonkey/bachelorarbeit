@@ -1,13 +1,13 @@
 ﻿{
 	"Menu": {
-		"BackgroundImage": "gameBackground",
+		"BackgroundImage": "menuBackground",
 		"BackgroundSound": "backgroundMusic",
 		"PlayButton": {
 			"Text": {
 				"de": "Spielen",
 				"en": "Play"
 			},
-			"DefaultImage": "play_2",
+			"DefaultImage": "play_1",
 			"ClickImage": "play_3",
 			"ClickSound": "pop",
 			"Position": {
