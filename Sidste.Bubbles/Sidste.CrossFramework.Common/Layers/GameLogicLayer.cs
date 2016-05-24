@@ -144,7 +144,7 @@ namespace Sidste.CrossFramework.Common.Layers
             if (_hitBubble == null)
                 return;
 
-            var touch = touches[0];
+            CCTouch touch = touches[0];
 
             _line.DrawLine(_lastPoint, touch.Location, 3, _hitBubble.ColorF);
             _lastPoint = touch.Location;
@@ -234,8 +234,8 @@ namespace Sidste.CrossFramework.Common.Layers
                 if (CCRandom.Next(0, 100) > 90)
                     _visibleBubbles.Add(AddBubble());
 
-                float left = (_gameConfiguration.MaxDuration - ElapsedTime);
-                if (left < 10 && CCRandom.Next(0, 100) > 30)
+                float timeLeft = (_gameConfiguration.MaxDuration - ElapsedTime);
+                if (timeLeft < 10 && CCRandom.Next(0, 100) > 30)
                     _visibleBubbles.Add(AddBubble());
             }, .5f);
 

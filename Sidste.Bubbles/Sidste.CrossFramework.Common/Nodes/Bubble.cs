@@ -100,8 +100,7 @@ namespace Sideste.CrossFramework.Common
 
         private void PopAnimation(CCLayer layer)
         {
-            //play pop sound here
-            this.StopAllActions ();
+            this.StopAllActions();
             var pop = new CCParticleExplosion(this.Position);
             pop.EndColor = new CCColor4F(CCColor3B.Yellow);
             pop.AutoRemoveOnFinish = true;
