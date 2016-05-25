@@ -4,19 +4,20 @@ using CocosSharp;
 using Sidste.CrossFramework.Common.Configuration;
 using Sideste.CrossFramework.Common;
 using Newtonsoft.Json;
+using Sidste.CrossFramework.Common.Nodes;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
     public class GameLogicLayer : BaseLayer
     {
-        private GameLayer GameLayer { get { return (GameLayer)Parent; } }
+        private GameLayer GameLayer => (GameLayer)Parent;
 
-        private GameConfiguration _gameConfiguration;
+        private readonly GameConfiguration _gameConfiguration;
 
-        private CCDrawNode _line;
-        private List<Bubble> _visibleBubbles;
-        private List<Bubble> _burstedBubbles;
-        private List<Bubble> _frozenBubbles;
+        private readonly CCDrawNode _line;
+        private readonly List<Bubble> _visibleBubbles;
+        private readonly List<Bubble> _burstedBubbles;
+        private readonly List<Bubble> _frozenBubbles;
         private CCPoint _lastPoint;
 
         private int _redColorIncrement = 10;
@@ -26,19 +27,10 @@ namespace Sidste.CrossFramework.Common.Layers
         private CCLabel _countdown;
         private int _currentScore;
 
-        private int ElapsedTime
-        {
-            get { return GameLayer.ElapsedTime; }
-        }
+        private int ElapsedTime => GameLayer.ElapsedTime;
 
-        private bool ShouldEndGame
-        {
-            get
-            { 
-                return ElapsedTime >= _gameConfiguration.MaxDuration
-                        || _currentScore >= _gameConfiguration.ScoreToReach;
-            }
-        }
+        private bool ShouldEndGame => ElapsedTime >= _gameConfiguration.MaxDuration
+                                      || _currentScore >= _gameConfiguration.ScoreToReach;
 
         public GameLogicLayer(LevelDefinition levelDefinition) 
             : base(CCColor4B.Blue, new CCColor4B(127, 200, 205))
@@ -50,8 +42,7 @@ namespace Sidste.CrossFramework.Common.Layers
             _frozenBubbles = new List<Bubble>();
             Color = new CCColor3B(127, 200, 205);
             Opacity = 200;
-            _line = new CCDrawNode();
-            _line.ZOrder = int.MaxValue;
+            _line = new CCDrawNode {ZOrder = int.MaxValue};
 
             StartScheduling();
         }
@@ -65,10 +56,12 @@ namespace Sidste.CrossFramework.Common.Layers
             //Add line that we will use to draw later on
             AddChild(_line, 1);
 
-            var touchListener = new CCEventListenerTouchAllAtOnce();
-            touchListener.OnTouchesEnded = OnTouchesEnded;
-            touchListener.OnTouchesMoved = OnTouchesMoved;
-            touchListener.OnTouchesBegan = OnTouchesBegan;
+            var touchListener = new CCEventListenerTouchAllAtOnce
+            {
+                OnTouchesEnded = OnTouchesEnded,
+                OnTouchesMoved = OnTouchesMoved,
+                OnTouchesBegan = OnTouchesBegan
+            };
             AddEventListener(touchListener, this);
 
             _multiplierLabel = new CCLabel(string.Empty, Fonts.MainFont, 48, CCLabelFormat.SystemFont)
@@ -96,17 +89,6 @@ namespace Sidste.CrossFramework.Common.Layers
             ScheduleOnce(t => _visibleBubbles.Add(AddBubble()), .25f);
             ScheduleOnce(t => _visibleBubbles.Add(AddBubble()), .25f);
             ScheduleOnce(t => _visibleBubbles.Add(AddBubble()), .25f);
-        }
-
-
-        private void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
-        {
-            if (touches.Count <= 0)
-                return;
-            if (_hitBubble == null)
-                return;
-
-            TallyScore();
         }
 
         private void OnTouchesBegan(List<CCTouch> touches, CCEvent touchEvent)
@@ -167,11 +149,11 @@ namespace Sidste.CrossFramework.Common.Layers
                 return;
             }
 
-            var bubbles = (from bubble in _visibleBubbles
-                where bubble.ContainsPoint(touch.Location) &&
-                bubble.ColorId == _hitBubble.ColorId &&
-                !bubble.IsFrozen
-                select bubble).ToList();
+            IEnumerable<Bubble> bubbles = _visibleBubbles.Where(
+                x => x.ContainsPoint(touch.Location) 
+                && x.ColorId == _hitBubble.ColorId 
+                && !x.IsFrozen).ToList();
+                
 
             if (bubbles == null || !bubbles.Any())
                 return;
@@ -184,18 +166,28 @@ namespace Sidste.CrossFramework.Common.Layers
 
             if (_frozenBubbles.Count > 1) 
             {
-                _multiplierLabel.SystemFontSize = 48 + (_frozenBubbles.Count * 2);
-                _multiplierLabel.Text = (_frozenBubbles.Count - 1) + "x";
+                _multiplierLabel.SystemFontSize = 48 + _frozenBubbles.Count * 2;
+                _multiplierLabel.Text = $"{_frozenBubbles.Count - 1}x";
             }
 
             if (_frozenBubbles.Count >= 6) 
             {
-                TallyScore();
+                CalculateScore();
                 CCAudioEngine.SharedEngine.PlayEffect("sounds/highscore");
             }
         }
 
-        private void TallyScore()
+        private void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
+        {
+            if (touches.Count <= 0)
+                return;
+            if (_hitBubble == null)
+                return;
+
+            CalculateScore();
+        }
+
+        private void CalculateScore()
         {
             int score = 0;
             int multiplier = _frozenBubbles.Count - 1;
@@ -209,9 +201,13 @@ namespace Sidste.CrossFramework.Common.Layers
             score *= multiplier;
 
             if (multiplier < 0)
+            {
                 score = 0;
-            else if (multiplier == 0)//  1 bubble
+            }
+            else if (multiplier == 0) //  1 bubble
+            {
                 score = 20;
+            }
 
             _line.Clear();
             _hitBubble = null;
@@ -247,8 +243,7 @@ namespace Sidste.CrossFramework.Common.Layers
         private Bubble AddBubble()
         {
             var bubble = new Bubble(_gameConfiguration.MaxColors, _gameConfiguration.GrowthTime);
-            var p = PositionHelper.GetRandomPosition(bubble.ContentSize, VisibleBoundsWorldspace.Size);
-            bubble.Position = p;
+            bubble.Position = PositionHelper.GetRandomPosition(bubble.ContentSize, VisibleBoundsWorldspace.Size);
 
             AddChild(bubble);
 
@@ -282,15 +277,15 @@ namespace Sidste.CrossFramework.Common.Layers
 
         private void UpdateLayerGradient(float dt)
         {
-            float left = (_gameConfiguration.MaxDuration - ElapsedTime);
-            if (left < 0)
-                left = 0;
+            float timeLeft = _gameConfiguration.MaxDuration - ElapsedTime;
+            if (timeLeft < 0)
+                timeLeft = 0;
 
-            _countdown.Text = left.ToString();
-            CCColor3B startColor = this.StartColor;
+            _countdown.Text = timeLeft.ToString();
+            CCColor3B startColor = StartColor;
 
             int increment = _redColorIncrement;
-            if (left < 10)
+            if (timeLeft < 10)
                 increment = _redColorIncrementEnd;
 
             int newRedColor = startColor.R + increment;
@@ -307,7 +302,7 @@ namespace Sidste.CrossFramework.Common.Layers
                 _redColorIncrementEnd *= -1;
             }
 
-            startColor.R = (byte)(newRedColor);
+            startColor.R = (byte)newRedColor;
 
             StartColor = startColor;
         }

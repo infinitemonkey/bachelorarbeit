@@ -1,75 +1,64 @@
 ﻿using System;
-using System.Collections.Generic;
 using CocosSharp;
 
-namespace Sideste.CrossFramework.Common
+namespace Sidste.CrossFramework.Common.Nodes
 {
     public class Bubble : CCDrawNode
     {
         private int _bubblePoints = 50;
         private float _bubbleMax;
         private float _growthTime; 
-        private CCColor4B _color;
-        private CCColor4F _colorF;
+        private readonly CCColor4B _color;
         private CCScaleBy _scale;
         private CCMoveBy _move1, _move2;
         private CCRepeatForever _repeatedAction;
-        private int _maxGrowthTime;
+        private readonly int _maxGrowthTime;
 
-        private static CCColor4B _color0 = new CCColor4B (119, 208, 101, 255);
-        private static CCColor4B _color1 = new CCColor4B (180, 85, 182, 255);
-        private static CCColor4B _color2 = new CCColor4B (255, 255, 255, 255);//white
-        private static CCColor4B _color3 = new CCColor4B (44, 62, 80, 255);
-        private static CCColor4B _color4 = new CCColor4B (255, 255, 75, 255);//yellow
+        private static readonly CCColor4B Color0 = new CCColor4B (119, 208, 101, 255);
+        private static readonly CCColor4B Color1 = new CCColor4B (180, 85, 182, 255);
+        private static readonly CCColor4B Color2 = new CCColor4B (255, 255, 255, 255);//white
+        private static readonly CCColor4B Color3 = new CCColor4B (44, 62, 80, 255);
+        private static readonly CCColor4B Color4 = new CCColor4B (255, 255, 75, 255);//yellow
 
-        public int Points
-        {
-            get { return (int)(_bubblePoints * this.ScaleX); }
-        }
-            
-        public static int UniversalId;
+        public int Points => (int)(_bubblePoints * ScaleX);
+
+        private static int _universalId;
         public int Id { get; }
 
-        public CCColor4B ColorId 
-        {
-            get { return _color; }
-        }
+        public CCColor4B ColorId => _color;
 
-        public CCColor4F ColorF 
-        {
-            get { return _colorF; }
-        }
+        public CCColor4F ColorF { get; }
 
-        public bool IsFrozen { get; set; }
+        public bool IsFrozen { get; private set; }
 
         public Bubble(int maxColors, int maxGrowthTime)
         {
-            Id = UniversalId++;
+            Id = _universalId++;
             Scale = 0.5f;
             switch (CCRandom.Next(0, maxColors))
             {
                 case 0:
-                    _color = _color0;
+                    _color = Color0;
                     break;
                 case 1:
-                    _color = _color1;
+                    _color = Color1;
                     break;
                 case 2:
-                    _color = _color2;
+                    _color = Color2;
                     break;
                 case 3:
-                    _color = _color3;
+                    _color = Color3;
                     break;
                 case 4:
-                    _color = _color4;
+                    _color = Color4;
                     break;
             }
 
             _maxGrowthTime = maxGrowthTime;
-            _colorF = new CCColor4F(_color);
+            ColorF = new CCColor4F(_color);
             var size = CCRandom.Next(25, 50);
-            this.ContentSize = new CCSize(size, size);
-            this.DrawSolidCircle(this.Position, (float)size, _color);
+            ContentSize = new CCSize(size, size);
+            DrawSolidCircle(Position, size, _color);
         }
 
         protected override void AddedToScene()
@@ -78,7 +67,7 @@ namespace Sideste.CrossFramework.Common
             _bubbleMax = CCRandom.Next(4, 6);
             _growthTime = CCRandom.Next(3, _maxGrowthTime);
             _scale = new CCScaleBy(_growthTime, _bubbleMax);
-            this.AddAction(_scale);
+            AddAction(_scale);
 
             _move1 = new CCMoveBy(.2f, new CCPoint(4, 4));
             _move2 = new CCMoveBy(.24f, new CCPoint(-4, -4));
@@ -88,7 +77,7 @@ namespace Sideste.CrossFramework.Common
         public void Freeze(int count)
         {
             IsFrozen = true;
-            this.StopAllActions();
+            StopAllActions();
             try
             {
                 //CCAudioEngine.SharedEngine.PlayEffect("sounds/ring" + count, false);
@@ -100,14 +89,16 @@ namespace Sideste.CrossFramework.Common
 
         private void PopAnimation(CCLayer layer)
         {
-            this.StopAllActions();
-            var pop = new CCParticleExplosion(this.Position);
-            pop.EndColor = new CCColor4F(CCColor3B.Yellow);
-            pop.AutoRemoveOnFinish = true;
-            pop.BlendAdditive = true;
-            pop.Life = 1.5F;
-            pop.EmissionRate = 80;
-            pop.StartColor = new CCColor4F(_color);
+            StopAllActions();
+            var pop = new CCParticleExplosion(this.Position)
+            {
+                EndColor = new CCColor4F(CCColor3B.Yellow),
+                AutoRemoveOnFinish = true,
+                BlendAdditive = true,
+                Life = 1.5F,
+                EmissionRate = 80,
+                StartColor = new CCColor4F(_color)
+            };
             layer.AddChild(pop);
             //CCAudioEngine.SharedEngine.PlayEffect ("sounds/pop");
         }
@@ -115,23 +106,23 @@ namespace Sideste.CrossFramework.Common
         public void ForcePop(CCLayer layer)
         {
             PopAnimation(layer);
-            this.RemoveFromParent(true);
+            RemoveFromParent();
         }
 
         public bool Pop(CCLayer layer)
         {
-            if (this.NumberOfRunningActions == 1 
-                && this.ScaleX + this.ScaleY > _bubbleMax - 1.25) 
+            if (NumberOfRunningActions == 1 
+                && ScaleX + ScaleY > _bubbleMax - 1.25) 
             {
                 RunAction(_repeatedAction);
             }
 
-            if (this.ScaleX + this.ScaleY < _bubbleMax)
+            if (ScaleX + ScaleY < _bubbleMax)
                 return false;
 
             PopAnimation(layer);
 
-            this.RemoveFromParent(true);
+            RemoveFromParent();
             return true;
         }
 
@@ -141,14 +132,14 @@ namespace Sideste.CrossFramework.Common
             // y-difference from the centre, square-root it, and compare with the radius.
             // (This is Pythagoras' theorem.)
 
-            var dX = Math.Abs(toTest.X - this.Position.X);
-            var dY = Math.Abs(toTest.Y - this.Position.Y);
+            var dX = Math.Abs(toTest.X - Position.X);
+            var dY = Math.Abs(toTest.Y - Position.Y);
 
             var sumOfSquares = dX * dX + dY * dY;
 
             int distance = (int) Math.Sqrt(sumOfSquares);
 
-            return (this.ScaledContentSize.Width + 15 >= distance);
+            return ScaledContentSize.Width + 15 >= distance;
         }
     }
 }
