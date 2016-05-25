@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using CocosSharp;
+using Sideste.CrossFramework.Common;
 
 namespace Sidste.CrossFramework.Common.Layers
 {
-    public class PauseLayer : CCLayerColor
+    public class PauseLayer : BaseLayer
     {
         private GameLayer GameLayer { get { return (GameLayer)Parent; } }
             
