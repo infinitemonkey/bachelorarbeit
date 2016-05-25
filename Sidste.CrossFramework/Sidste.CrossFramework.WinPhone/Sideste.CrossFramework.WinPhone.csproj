@@ -107,6 +107,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\MarkerFelt-22.xnb" />
+    <BundleResource Include="Content\Sounds\backgroundMusic.mp3" />
+    <BundleResource Include="Content\Sounds\pop.wav" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-240.png" />
@@ -118,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Hd\" />
-    <Folder Include="Content\Sounds\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sidste.CrossFramework.Common\Sideste.CrossFramework.Common.csproj">
@@ -209,6 +210,10 @@
     <Content Include="Content\Images\Ld\tutorial_2.xnb" />
     <Content Include="Content\Images\Ld\tutorial_3.xnb" />
     <Content Include="Content\Images\Ld\tutorial_4.xnb" />
+    <Content Include="Content\Images\Ld\gameBackground.xnb" />
+    <Content Include="Content\Images\Ld\gameBackground2.xnb" />
+    <Content Include="Content\Images\Ld\logo2.xnb" />
+    <Content Include="Content\Images\Ld\menuBackground.xnb" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
