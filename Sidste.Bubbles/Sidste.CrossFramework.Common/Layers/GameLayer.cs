@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using CocosSharp;
-using Sidste.CrossFramework.Common.Configuration;
 using Sideste.CrossFramework.Common;
 
 namespace Sidste.CrossFramework.Common.Layers
@@ -14,7 +12,7 @@ namespace Sidste.CrossFramework.Common.Layers
         private int _score;
         private CCLabel _scoreLabel;
 
-        public int ElapsedTime { get; set; }
+        public int ElapsedTime { get; private set; }
 
         public GameLayer(string levelKey) : base(CCColor4B.Blue)
         {
@@ -40,9 +38,11 @@ namespace Sidste.CrossFramework.Common.Layers
 
         private void SetBackground(CCRect bounds, string backgroundImage)
         {
-            var bg = new CCSprite(backgroundImage);
-            bg.ContentSize = new CCSize(bounds.MaxX, bounds.MaxY);
-            bg.Position = bounds.Center;
+            var bg = new CCSprite(backgroundImage)
+            {
+                ContentSize = new CCSize(bounds.MaxX, bounds.MaxY),
+                Position = bounds.Center
+            };
             AddChild(bg);
         }
 
@@ -102,7 +102,7 @@ namespace Sidste.CrossFramework.Common.Layers
         public void NextLevel()
         {
             string nextLevelKey = Configuration.LevelLayer.Levels[Configuration.LevelLayer.Levels.IndexOf(LevelDefinition) + 1].Key;
-            var gameLayer = GameLayer.CreateScene(GameView, nextLevelKey);
+            var gameLayer = CreateScene(GameView, nextLevelKey);
             GoToScene(gameLayer);
         }
 

@@ -132,7 +132,7 @@ namespace Sidste.CrossFramework.Common.Layers
             _lastPoint = touch.Location;
 
             bool hitOtherColor = _visibleBubbles.Any(x => x.ContainsPoint(touch.Location) 
-                                                          && x.ColorId != _hitBubble.ColorId);
+                                                          && x.BubbleColor != _hitBubble.BubbleColor);
 
             if (hitOtherColor) 
             {
@@ -151,7 +151,7 @@ namespace Sidste.CrossFramework.Common.Layers
 
             IEnumerable<Bubble> bubbles = _visibleBubbles.Where(
                 x => x.ContainsPoint(touch.Location) 
-                && x.ColorId == _hitBubble.ColorId 
+                && x.BubbleColor == _hitBubble.BubbleColor
                 && !x.IsFrozen).ToList();
                 
 

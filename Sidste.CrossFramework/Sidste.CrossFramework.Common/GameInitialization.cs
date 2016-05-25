@@ -31,7 +31,7 @@ namespace Sidste.CrossFramework.Common
                 //else
                 //{
                     contentSearchPaths.Add("Images/Ld");
-                    CCSprite.DefaultTexelToContentSizeRatio = 1.0f;
+                    CCSprite.DefaultTexelToContentSizeRatio = 2.0f;
                 //}
 
                 gameView.ContentManager.SearchPaths = contentSearchPaths;

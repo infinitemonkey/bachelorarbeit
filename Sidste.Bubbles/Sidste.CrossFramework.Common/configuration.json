@@ -101,10 +101,10 @@
 					"Y": 1
 				},
 				"Content": "{ 
-					\"MaxDuration\": 2,
+					\"MaxDuration\": 20,
 					\"MaxColors\": 1,
 					\"GrowthTime\": 10,
-					\"ScoreToReach\": 10000
+					\"ScoreToReach\": 1000
 				}"
 			},
 			{
